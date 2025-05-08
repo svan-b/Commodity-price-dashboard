@@ -52,12 +52,13 @@ class Dashboard:
         
         html, body, [class*="css"] {{
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
         }}
         
         .main .block-container {{
             padding-top: 1rem;
             padding-bottom: 1rem;
-            max-width: 1500px;
+            max-width: 1800px;
         }}
         
         h1, h2, h3, h4, h5, h6 {{
@@ -67,20 +68,25 @@ class Dashboard:
         }}
         
         h1 {{
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
         }}
         
         h2 {{
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             border-bottom: 1px solid #f0f0f0;
             padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            margin-top: 1.5rem;
         }}
         
         h3 {{
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 600;
+        }}
+        
+        p, div, span, label {{
+            font-size: 1.1rem;
         }}
         
         .stTabs [data-baseweb="tab-list"] button [data-testid="stMarkdownContainer"] p {{
@@ -124,10 +130,10 @@ class Dashboard:
         
         .teck-header {{
             background-color: {TECK_BLUE};
-            padding: 1.5rem;
+            padding: 2rem;
             color: white;
             border-radius: 5px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -135,24 +141,41 @@ class Dashboard:
         }}
         
         .teck-logo {{
-            font-weight: 700;
-            font-size: 2rem;
+            font-weight: 800;
+            font-size: 2.5rem;
             letter-spacing: -0.03em;
-            margin-right: 1rem;
+            margin-right: 2rem;
+            border-right: 2px solid rgba(255,255,255,0.3);
+            padding-right: 2rem;
+            line-height: 1;
         }}
         
         .teck-header-content {{
             flex: 1;
         }}
         
+        .teck-header-content h1 {{
+            color: white;
+            margin-bottom: 0.3rem;
+            font-size: 1.8rem;
+        }}
+        
+        .teck-header-content p {{
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin: 0;
+        }}
+        
         .price-card {{
             border: 1px solid #eaecef;
             border-radius: 8px;
             padding: 1.2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             background-color: {BACKGROUND_WHITE};
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
         }}
         
         .price-card:hover {{
@@ -160,28 +183,40 @@ class Dashboard:
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }}
         
+        .color-indicator {{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 0 8px 0 8px;
+        }}
+        
         .price-card h3 {{
             margin-top: 0;
             color: {TECK_BLUE};
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 600;
             border-bottom: none;
             padding-bottom: 0;
+            margin-right: 25px; /* Space for color indicator */
+            margin-bottom: 0.8rem;
         }}
         
         .price-value {{
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 700;
             margin: 0.7rem 0;
             letter-spacing: -0.01em;
         }}
         
         .price-change {{
-            padding: 0.2rem 0.5rem;
+            padding: 0.3rem 0.6rem;
             border-radius: 4px;
             font-weight: 500;
             display: inline-block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
         }}
         
         .price-change.positive {{
@@ -196,16 +231,20 @@ class Dashboard:
         
         .price-units {{
             color: #6c757d;
-            font-size: 0.8rem;
-            margin-bottom: 0.3rem;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
         }}
         
         .data-source {{
-            font-size: 0.7rem;
+            font-size: 0.9rem;
             color: #6c757d;
-            margin-top: 0.5rem;
+            margin-top: 0.7rem;
             border-top: 1px solid #f5f5f5;
-            padding-top: 0.5rem;
+            padding-top: 0.7rem;
+        }}
+        
+        .price-type {{
+            font-weight: 600;
         }}
         
         /* Sidebar styling */
@@ -437,22 +476,29 @@ class Dashboard:
         
         # Group commodities by category
         commodity_by_category = {}
+        
+        # Get the complete commodity info for each loaded commodity
+        commodity_info = {}
+        for commodity in COMMODITIES:
+            commodity_info[commodity['name']] = commodity
+            
+        # Group by category
         for commodity_name, df in data.items():
             if df.empty:
                 continue
                 
-            # Find category
-            for commodity in COMMODITIES:
-                if commodity['name'] == commodity_name:
-                    category = commodity['category']
-                    if category not in commodity_by_category:
-                        commodity_by_category[category] = []
-                    commodity_by_category[category].append((commodity_name, df))
-                    break
+            if commodity_name in commodity_info:
+                category = commodity_info[commodity_name]['category']
+                if category not in commodity_by_category:
+                    commodity_by_category[category] = []
+                commodity_by_category[category].append((commodity_name, df, commodity_info[commodity_name]))
         
-        # Render cards by category
-        for category, commodities in commodity_by_category.items():
-            if not commodities:
+        # Define the category display order
+        category_order = ['base_metals', 'precious_metals', 'rare_metals', 'energy', 'steel_materials']
+        
+        # Render cards in specific category order
+        for category in category_order:
+            if category not in commodity_by_category or not commodity_by_category[category]:
                 continue
                 
             # Add category header
@@ -462,11 +508,13 @@ class Dashboard:
             cols = st.columns(4)
             col_idx = 0
             
-            for commodity_name, df in commodities:
+            for commodity_name, df, commodity_info in commodity_by_category[category]:
                 # Get metadata
                 units = df["Units"].iloc[0] if "Units" in df.columns else "N/A"
                 data_source = df["Data Source"].iloc[0] if "Data Source" in df.columns else "N/A"
                 ticker = df["Ticker"].iloc[0] if "Ticker" in df.columns else "N/A"
+                commodity_type = df["Type"].iloc[0] if "Type" in df.columns else "N/A"
+                color = commodity_info.get('color', '#CCCCCC')  # Default to gray if no color specified
                 
                 # Calculate changes
                 changes = calculate_change(df)
@@ -485,14 +533,17 @@ class Dashboard:
                 col_idx += 1
                 
                 with col:
-                    # Render commodity card
+                    # Render commodity card with color block
                     col.markdown(f"""
                     <div class="price-card">
+                        <div class="color-indicator" style="background-color: {color};"></div>
                         <h3>{commodity_name}</h3>
                         <div class="price-value">{formatted_price}</div>
                         <div class="price-change {change_color}">{change_text}</div>
                         <div class="price-units">{units}</div>
-                        <div class="data-source">Source: {data_source} | {ticker}</div>
+                        <div class="data-source">
+                            <span class="price-type">{commodity_type}</span> | {data_source} | {ticker}
+                        </div>
                     </div>
                     """, unsafe_allow_html=True)
     
@@ -596,6 +647,110 @@ class Dashboard:
                     display_df = display_df.sort_values('Date', ascending=False)
                     st.dataframe(display_df, use_container_width=True)
     
+    def render_api_status_tab(self, data, filters):
+        """
+        Render API status and data validation information.
+        
+        Args:
+            data (dict): Dictionary of commodity data
+            filters (dict): Filter settings
+        """
+        st.markdown("## Bloomberg API Status")
+        
+        # Get the validation results for the data
+        validation_results = self.data_validator.validate_all_data(data)
+        validation_summary = self.data_validator.get_validation_summary(validation_results)
+        
+        # Create columns for API status metrics
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            st.metric(
+                "Commodities with Data", 
+                f"{validation_summary['valid_commodities']} / {validation_summary['total_commodities']}",
+                delta=None
+            )
+            
+        with col2:
+            if validation_summary['commodities_with_issues'] > 0:
+                delta_color = "inverse"
+            else:
+                delta_color = "normal"
+                
+            st.metric(
+                "Commodities with Issues", 
+                validation_summary['commodities_with_issues'],
+                delta=f"{validation_summary['commodities_with_issues']} issues",
+                delta_color=delta_color
+            )
+            
+        with col3:
+            # Get the most recent timestamp across all data
+            update_dates = [df["Date"].max() for df in data.values() if not df.empty]
+            if update_dates:
+                latest_update = max(update_dates)
+                latest_update_str = latest_update.strftime("%B %d, %Y")
+                days_ago = (datetime.now() - latest_update).days
+                
+                st.metric(
+                    "Last Data Update", 
+                    latest_update_str,
+                    delta=f"{days_ago} days ago"
+                )
+            else:
+                st.metric(
+                    "Last Data Update", 
+                    "N/A",
+                    delta=None
+                )
+        
+        # Display detailed data validation information
+        st.markdown("## Data Validation Details")
+        
+        # Create an expandable section for each commodity
+        for commodity_name, result in validation_results.items():
+            if result['valid']:
+                status_icon = "✅"
+            else:
+                status_icon = "⚠️"
+                
+            with st.expander(f"{status_icon} {commodity_name}"):
+                if not result['valid']:
+                    st.markdown("### Issues")
+                    for issue in result['issues']:
+                        st.markdown(f"- {issue}")
+                
+                # Display metrics if available
+                if result['metrics']:
+                    st.markdown("### Metrics")
+                    metrics_df = pd.DataFrame({
+                        'Metric': list(result['metrics'].keys()),
+                        'Value': list(result['metrics'].values())
+                    })
+                    st.dataframe(metrics_df)
+        
+        # Bloomberg API Configuration
+        st.markdown("## Bloomberg API Configuration")
+        
+        # Display ticker configurations
+        st.markdown("### Commodity Tickers")
+        
+        ticker_data = []
+        for commodity in COMMODITIES:
+            ticker_type = "Primary" if commodity['preferred_ticker'] else "Alternative"
+            if commodity['preferred_ticker'] or commodity['alternative_ticker']:
+                ticker = commodity['preferred_ticker'] or commodity['alternative_ticker']
+                ticker_data.append({
+                    "Commodity": commodity['name'],
+                    "Category": CATEGORIES[commodity['category']],
+                    "Ticker": ticker,
+                    "Type": commodity['type'],
+                    "Units": commodity['units']
+                })
+        
+        ticker_df = pd.DataFrame(ticker_data)
+        st.dataframe(ticker_df)
+        
     def render_footer(self):
         """Render dashboard footer."""
         st.markdown("""
@@ -615,10 +770,11 @@ class Dashboard:
         data = self.load_data(filters)
         
         # Create tabs for different views - put cards first
-        cards_tab, overview_tab, details_tab = st.tabs([
+        cards_tab, overview_tab, details_tab, api_status_tab = st.tabs([
             "🔍 Price Cards", 
             "📊 Market Overview", 
-            "📈 Detailed Analysis"
+            "📈 Detailed Analysis",
+            "⚙️ API Status"
         ])
         
         with cards_tab:
@@ -629,5 +785,8 @@ class Dashboard:
             
         with details_tab:
             self.render_individual_tabs(data, filters)
+            
+        with api_status_tab:
+            self.render_api_status_tab(data, filters)
             
         self.render_footer()
