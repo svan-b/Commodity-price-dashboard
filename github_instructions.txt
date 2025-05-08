@@ -1,0 +1,41 @@
+INSTRUCTIONS FOR PUSHING TO GITHUB
+
+I've prepared your repository with all changes committed locally. To push these changes to GitHub, follow these steps:
+
+1. Open a Command Prompt or PowerShell window in Windows
+
+2. Navigate to your project directory:
+   cd "C:\Users\vanbo\Commercial and Market Research\Commodity-price-dashboard"
+
+3. Verify everything is ready:
+   git status
+
+4. Push the changes to GitHub:
+   git push -u origin master
+
+   IMPORTANT: We're using the "master" branch, not "main". Make sure to push to the correct branch.
+   
+   If this is your first time pushing to the repository, you'll need to authenticate with GitHub.
+   GitHub no longer accepts password authentication from the command line.
+   
+   You can use:
+   - GitHub CLI (gh auth login)
+   - A personal access token
+   - SSH keys
+   - Or use GitHub Desktop instead
+
+5. Alternative: Using GitHub Desktop
+   If you have GitHub Desktop installed:
+   - Open GitHub Desktop
+   - Add the local repository (File > Add local repository)
+   - Select your repository folder
+   - Click "Publish repository" (if it's a new repository) or "Push origin" (if it already exists)
+
+All the code improvements we made have been committed:
+1. Enhanced UI with color indicators and SPOT/FUTURES labels
+2. Fixed price movement display with proper time references
+3. Improved data loading to show all commodities
+4. Enhanced API Status tab with detailed validation information
+5. Updated README with comprehensive documentation and cloud deployment instructions
+
+Your repository is now ready for deployment to Streamlit Cloud or any other hosting platform.
