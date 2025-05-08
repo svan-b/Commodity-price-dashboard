@@ -40,7 +40,7 @@ def format_price(price, units):
         else:
             return f"${price:,.2f}"
     elif 'CNY' in units:
-        return f"¥{price:,.0f}"
+        return f"CNY {price:,.0f}"  # Using text instead of symbol to avoid encoding issues
     else:
         return f"{price:,.2f}"
 
