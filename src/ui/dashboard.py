@@ -40,7 +40,7 @@ class Dashboard:
         """Configure Streamlit page settings."""
         st.set_page_config(
             page_title=DASHBOARD_TITLE,
-            page_icon="=�",
+            page_icon="📊",
             layout="wide",
             initial_sidebar_state="expanded"
         )
@@ -377,7 +377,7 @@ class Dashboard:
                     
                     st.markdown(f"### Current Price")
                     st.markdown(f"<div class='price-value'>{formatted_price}</div>", unsafe_allow_html=True)
-                    st.markdown(f"<div class='price-units'>{units} " {commodity_type}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='price-units'>{units} • {commodity_type}</div>", unsafe_allow_html=True)
                     
                     # Price changes
                     st.markdown("### Price Changes")
@@ -430,7 +430,7 @@ class Dashboard:
         """Render dashboard footer."""
         st.markdown("""
         <footer>
-            Teck Resources Commodity Price Dashboard " Data retrieved via Bloomberg
+            Teck Resources Commodity Price Dashboard • Data retrieved via Bloomberg
             <br>
             Last updated: May 07, 2025
         </footer>
@@ -446,9 +446,9 @@ class Dashboard:
         
         # Create tabs for different views
         overview_tab, cards_tab, details_tab = st.tabs([
-            "=� Overview", 
-            "= Summary Cards", 
-            "=� Detailed Analysis"
+            "📊 Overview", 
+            "🔍 Summary Cards", 
+            "📈 Detailed Analysis"
         ])
         
         with overview_tab:
