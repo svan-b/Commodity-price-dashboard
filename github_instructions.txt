@@ -1,6 +1,6 @@
-INSTRUCTIONS FOR PUSHING TO GITHUB
+INSTRUCTIONS FOR PUSHING TO GITHUB (MASTER BRANCH)
 
-I've prepared your repository with all changes committed locally. To push these changes to GitHub, follow these steps:
+I've prepared your repository with all changes committed locally to the MASTER branch (not main). To push these changes to GitHub, follow these steps:
 
 1. Open a Command Prompt or PowerShell window in Windows
 
@@ -24,12 +24,18 @@ I've prepared your repository with all changes committed locally. To push these 
    - SSH keys
    - Or use GitHub Desktop instead
 
-5. Alternative: Using GitHub Desktop
+5. Alternative: Using GitHub Desktop (RECOMMENDED)
    If you have GitHub Desktop installed:
    - Open GitHub Desktop
    - Add the local repository (File > Add local repository)
    - Select your repository folder
+   - Make sure you're on the MASTER branch (not main)
    - Click "Publish repository" (if it's a new repository) or "Push origin" (if it already exists)
+   - When publishing, ensure you publish to the MASTER branch
+   
+   If your GitHub repository was created with a default 'main' branch:
+   - You may need to update the default branch on GitHub to 'master'
+   - Or create the 'master' branch on GitHub and set it as the default
 
 All the code improvements we made have been committed:
 1. Enhanced UI with color indicators and SPOT/FUTURES labels
