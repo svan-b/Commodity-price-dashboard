@@ -28,19 +28,19 @@ def format_price(price, units):
     """
     if 'USD' in units:
         if 'MT' in units or 'ton' in units:
-            return f"${price:,.0f}"
+            return f"${price:,.2f}"  # Always use 2 decimal places
         elif 'troy oz' in units:
             return f"${price:,.2f}"
         elif 'kg' in units:
             return f"${price:,.2f}"
         elif 'lb' in units:
-            return f"${price:,.2f}"
+            return f"${price:,.3f}"  # 3 decimal places for smaller lb values
         elif 'barrel' in units:
             return f"${price:,.2f}"
         else:
             return f"${price:,.2f}"
     elif 'CNY' in units:
-        return f"CNY {price:,.0f}"  # Using text instead of symbol to avoid encoding issues
+        return f"CNY {price:,.2f}"  # Using text instead of symbol to avoid encoding issues
     else:
         return f"{price:,.2f}"
 
@@ -264,7 +264,10 @@ def create_multi_commodity_chart(data_dict, category, units_filter=None):
         return fig
     
     # Get category display name
-    category_display = CATEGORIES.get(category, category.capitalize())
+    if category == 'all':
+        category_display = "All Selected Commodities"
+    else:
+        category_display = CATEGORIES.get(category, category.capitalize())
     
     # Customize layout
     fig.update_layout(
