@@ -271,14 +271,70 @@ def generate_sample_data():
     import numpy as np
     
     today = datetime.datetime.now()
+    
+    # Generate 5 years of monthly data
     dates = pd.date_range(end=today, periods=60, freq='M')
     
-    # Sample data for Sulphur (with reasonable price ranges)
-    sulphur_data = pd.DataFrame({
-        'Date': dates,
-        'Price': np.random.normal(150, 20, size=len(dates))  # Mean around $150/MT with some volatility
-    })
+    # Generate sample data for all commodities to use as fallback
+    sample_data = {}
     
-    return {
-        "Sulphur": sulphur_data
-    }
+    # Sample data with realistic price ranges for each commodity
+    for commodity in COMMODITIES:
+        commodity_name = commodity['name']
+        
+        # Set appropriate price range based on commodity type
+        if 'units' in commodity:
+            if 'USD/MT' in commodity['units']:
+                base = 2000
+                volatility = 300
+            elif 'USD/lb' in commodity['units']:
+                base = 3
+                volatility = 0.5
+            elif 'USD/troy oz' in commodity['units']:
+                if 'Gold' in commodity_name:
+                    base = 1800
+                    volatility = 200
+                elif 'Silver' in commodity_name:
+                    base = 25
+                    volatility = 3
+                elif 'Platinum' in commodity_name:
+                    base = 1000
+                    volatility = 100
+                else:
+                    base = 100
+                    volatility = 20
+            elif 'USD/kg' in commodity['units']:
+                base = 20
+                volatility = 5
+            elif 'USD/barrel' in commodity['units']:
+                base = 80
+                volatility = 15
+            elif 'CNY' in commodity['units']:
+                base = 15000
+                volatility = 2000
+            else:
+                base = 100
+                volatility = 20
+        else:
+            base = 100
+            volatility = 20
+        
+        # Create a time series with trend and seasonality
+        t = np.linspace(0, 1, len(dates))
+        trend = base + volatility * (np.sin(t * 6) + 0.2 * np.cos(t * 15)) 
+        seasonality = volatility * 0.2 * np.sin(np.linspace(0, 12 * 5, len(dates)))
+        noise = np.random.normal(0, volatility * 0.1, size=len(dates))
+        
+        # Combine components
+        prices = trend + seasonality + noise
+        
+        # Ensure no negative prices
+        prices = np.maximum(prices, base * 0.5)
+        
+        # Create dataframe
+        sample_data[commodity_name] = pd.DataFrame({
+            'Date': dates,
+            'Price': prices
+        })
+    
+    return sample_data

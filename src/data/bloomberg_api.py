@@ -171,7 +171,7 @@ class BloombergAPI:
                     
                     # For pricing data, forward fill is often appropriate
                     # Then backfill any remaining NAs at the beginning
-                    df['Price'] = df['Price'].fillna(method='ffill').fillna(method='bfill')
+                    df['Price'] = df['Price'].ffill().bfill()
                 
                 # Filter out any future dates
                 today = pd.Timestamp.today()
@@ -183,7 +183,7 @@ class BloombergAPI:
                     # Use last day of week for financial data often makes more sense
                     df = df.resample('W-FRI').mean()
                     # Handle potential missing values after resampling
-                    df['Price'] = df['Price'].fillna(method='ffill')
+                    df['Price'] = df['Price'].ffill().bfill()
                     df = df.reset_index()
                     
                 elif freq == 'monthly':
@@ -191,7 +191,7 @@ class BloombergAPI:
                     # Use last business day of month for financial data
                     df = df.resample('BM').mean()
                     # Handle potential missing values after resampling
-                    df['Price'] = df['Price'].fillna(method='ffill')
+                    df['Price'] = df['Price'].ffill().bfill()
                     df = df.reset_index()
                     
                     # Drop the last row if it's the current month (incomplete data)
