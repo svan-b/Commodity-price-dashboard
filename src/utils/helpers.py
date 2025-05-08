@@ -73,15 +73,43 @@ def calculate_change(df):
     # Sort by date to ensure correct calculation
     df = df.sort_values('Date')
     
-    # Get the last price
+    # Get the last price and date
     last_price = df['Price'].iloc[-1]
-    previous_price = df['Price'].iloc[-2]
-    
-    # Get current date
     last_date = df['Date'].iloc[-1]
     
-    # Calculate time deltas
-    one_day_ago = last_date - timedelta(days=1)
+    # For previous price, create a meaningful change that accounts for frequency
+    # For monthly data, compare to previous month
+    date_diffs = [abs((date - (date - timedelta(days=1))).days) for date in df['Date']]
+    avg_diff = sum(date_diffs) / len(date_diffs)
+    
+    # Determine if we're looking at daily, weekly, or monthly data
+    if avg_diff < 2:  # Daily data
+        freq_type = "daily"
+        previous_idx = -2 if len(df) > 1 else -1
+    elif avg_diff < 10:  # Weekly data
+        freq_type = "weekly"
+        # Get previous week's data
+        previous_idx = df[df['Date'] <= (last_date - timedelta(days=7))].index.max()
+        if pd.isna(previous_idx) and len(df) > 1:
+            previous_idx = -2
+    else:  # Monthly or less frequent data
+        freq_type = "monthly"
+        # Get previous month's data
+        previous_idx = df[df['Date'] <= (last_date - timedelta(days=30))].index.max()
+        if pd.isna(previous_idx) and len(df) > 1:
+            previous_idx = -2
+    
+    previous_price = df['Price'].iloc[previous_idx if previous_idx != -1 else 0]
+    
+    # Calculate change for the appropriate frequency
+    change_1d = last_price - previous_price
+    # Prevent division by zero or very small numbers
+    if previous_price and abs(previous_price) > 0.0001:
+        change_1d_pct = change_1d / previous_price
+    else:
+        change_1d_pct = 0
+    
+    # Calculate time deltas for other timeframes
     one_week_ago = last_date - timedelta(days=7)
     one_month_ago = last_date - timedelta(days=30)
     one_year_ago = last_date - timedelta(days=365)
@@ -89,30 +117,40 @@ def calculate_change(df):
     
     # Find closest prices for each time period
     def get_closest_price(target_date):
-        closest_idx = (df['Date'] - target_date).abs().idxmin()
-        return df['Price'].iloc[closest_idx]
+        df_before = df[df['Date'] <= target_date]
+        if not df_before.empty:
+            return df_before['Price'].iloc[-1]
+        return df['Price'].iloc[0]  # Fallback to first available price
     
-    price_1d_ago = get_closest_price(one_day_ago)
     price_1w_ago = get_closest_price(one_week_ago)
     price_1m_ago = get_closest_price(one_month_ago)
     price_1y_ago = get_closest_price(one_year_ago)
     price_ytd = get_closest_price(ytd_start)
     
-    # Calculate changes
-    change_1d = last_price - price_1d_ago
-    change_1d_pct = change_1d / price_1d_ago if price_1d_ago else 0
-    
+    # Calculate other changes - ensuring we handle division safely
     change_1w = last_price - price_1w_ago
-    change_1w_pct = change_1w / price_1w_ago if price_1w_ago else 0
+    if price_1w_ago and abs(price_1w_ago) > 0.0001:
+        change_1w_pct = change_1w / price_1w_ago
+    else:
+        change_1w_pct = 0
     
     change_1m = last_price - price_1m_ago
-    change_1m_pct = change_1m / price_1m_ago if price_1m_ago else 0
+    if price_1m_ago and abs(price_1m_ago) > 0.0001:
+        change_1m_pct = change_1m / price_1m_ago
+    else:
+        change_1m_pct = 0
     
     change_1y = last_price - price_1y_ago
-    change_1y_pct = change_1y / price_1y_ago if price_1y_ago else 0
+    if price_1y_ago and abs(price_1y_ago) > 0.0001:
+        change_1y_pct = change_1y / price_1y_ago
+    else:
+        change_1y_pct = 0
     
     change_ytd = last_price - price_ytd
-    change_ytd_pct = change_ytd / price_ytd if price_ytd else 0
+    if price_ytd and abs(price_ytd) > 0.0001:
+        change_ytd_pct = change_ytd / price_ytd
+    else:
+        change_ytd_pct = 0
     
     return {
         'last_price': last_price,
@@ -342,10 +380,33 @@ def format_change_value(change, change_pct):
         tuple: (formatted text, color)
     """
     if change is None or change_pct is None:
-        return "N/A", "gray"
+        return "No change data", "gray"
+    
+    # Ensure we have valid numbers
+    try:
+        change = float(change)
+        change_pct = float(change_pct)
+    except (ValueError, TypeError):
+        return "Invalid data", "gray"
+    
+    # Handle edge cases
+    if abs(change) < 0.000001 or abs(change_pct) < 0.000001:
+        return "No change (0.00%)", "gray"
         
     sign = "+" if change > 0 else ""
-    text = f"{sign}{change:.2f} ({sign}{change_pct*100:.2f}%)"
-    color = "green" if change > 0 else "red" if change < 0 else "gray"
+    
+    # Format with appropriate precision based on magnitude
+    if abs(change) < 0.1:
+        change_str = f"{sign}{change:.4f}"
+    elif abs(change) < 1:
+        change_str = f"{sign}{change:.3f}"
+    else:
+        change_str = f"{sign}{change:.2f}"
+        
+    # Always show two decimal places for percentage
+    pct_str = f"{sign}{change_pct*100:.2f}%"
+    
+    text = f"{change_str} ({pct_str})"
+    color = "positive" if change > 0 else "negative" if change < 0 else "gray"
     
     return text, color

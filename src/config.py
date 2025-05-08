@@ -306,7 +306,6 @@ COMMODITIES = [
         "data_source": "Bloomberg",
         "color": "#708090"  # Steel color
     }
-}
 ]
 
 # Dashboard settings

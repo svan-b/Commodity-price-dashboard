@@ -187,9 +187,10 @@ class Dashboard:
             position: absolute;
             top: 0;
             right: 0;
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             border-radius: 0 8px 0 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }}
         
         .price-card h3 {{
@@ -299,7 +300,7 @@ class Dashboard:
             <div class="teck-logo">TECK</div>
             <div class="teck-header-content">
                 <h1>{DASHBOARD_TITLE}</h1>
-                <p>{DASHBOARD_SUBTITLE}</p>
+                <p>Market Research and Economic Analysis</p>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -357,7 +358,7 @@ class Dashboard:
         selected_commodities = st.sidebar.multiselect(
             "Select Commodities",
             options=all_commodities,
-            default=all_commodities[:10]  # Default to first 10 to avoid overwhelming the UI
+            default=all_commodities  # Default to all commodities
         )
         
         # Add a select all button
@@ -533,13 +534,31 @@ class Dashboard:
                 col_idx += 1
                 
                 with col:
-                    # Render commodity card with color block
+                    # Render commodity card with color block and price type indicator
+                    price_type_indicator = "SPOT" if "Spot" in commodity_type else "FUTURES"
+                    price_type_color = "#000000" if "Spot" in commodity_type else "#b0350b"  # Black for spot, red for futures
+                    
+                    # Determine appropriate change period text based on data frequency
+                    # If we have few data points or large gaps, it's likely monthly data
+                    date_diffs = [(df['Date'].iloc[i] - df['Date'].iloc[i-1]).days 
+                                 for i in range(1, min(4, len(df)))] if len(df) > 1 else [30]
+                    avg_diff = sum(date_diffs) / len(date_diffs)
+                    
+                    if avg_diff < 2:
+                        change_period = "1-Day Change"
+                    elif avg_diff < 10:
+                        change_period = "Weekly Change"
+                    else:
+                        change_period = "Monthly Change"
+                    
                     col.markdown(f"""
                     <div class="price-card">
                         <div class="color-indicator" style="background-color: {color};"></div>
+                        <div style="position: absolute; top: 10px; right: 35px; font-size: 0.7rem; font-weight: bold; color: {price_type_color}; background-color: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 3px;">{price_type_indicator}</div>
                         <h3>{commodity_name}</h3>
                         <div class="price-value">{formatted_price}</div>
                         <div class="price-change {change_color}">{change_text}</div>
+                        <div style="font-size: 0.75rem; color: #6c757d; margin-top: -5px; margin-bottom: 5px;">{change_period}</div>
                         <div class="price-units">{units}</div>
                         <div class="data-source">
                             <span class="price-type">{commodity_type}</span> | {data_source} | {ticker}
@@ -657,6 +676,21 @@ class Dashboard:
         """
         st.markdown("## Bloomberg API Status")
         
+        # Connection status indicator
+        has_data = any(not df.empty for df in data.values())
+        bloomberg_source = any(df["Data Source"].iloc[0] == "Bloomberg" for df in data.values() if not df.empty)
+        
+        connection_status = "Connected" if bloomberg_source else "Disconnected"
+        connection_color = "green" if bloomberg_source else "red"
+        
+        st.markdown(f"""
+        <div style="padding: 1rem; background-color: rgba(0,0,0,0.05); border-radius: 0.5rem; margin-bottom: 1rem;">
+            <h3>Connection Status: <span style="color: {connection_color};">{connection_status}</span></h3>
+            <p>Last connection attempt: {datetime.now().strftime('%Y-%m-%d %H:%M')}</p>
+            <p>Data source: {"Bloomberg Terminal" if bloomberg_source else "Sample Data"}</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
         # Get the validation results for the data
         validation_results = self.data_validator.validate_all_data(data)
         validation_summary = self.data_validator.get_validation_summary(validation_results)
@@ -709,12 +743,46 @@ class Dashboard:
         
         # Create an expandable section for each commodity
         for commodity_name, result in validation_results.items():
+            # Find the commodity info
+            commodity_info = next((c for c in COMMODITIES if c['name'] == commodity_name), None)
+            
+            # Get the last price value if available
+            last_price = None
+            last_date = None
+            if commodity_name in data and not data[commodity_name].empty:
+                df = data[commodity_name]
+                last_price = df['Price'].iloc[-1] if not df.empty else None
+                last_date = df['Date'].iloc[-1] if not df.empty else None
+            
+            # Format the status display
             if result['valid']:
                 status_icon = "✅"
             else:
                 status_icon = "⚠️"
                 
+            # Create the commodity description text
+            description = "No description available"
+            ticker_info = "No ticker information"
+            if commodity_info:
+                description = commodity_info.get('description', 'No description available')
+                if commodity_info.get('preferred_ticker'):
+                    ticker_info = f"Primary Ticker: {commodity_info['preferred_ticker']}"
+                    if commodity_info.get('alternative_ticker'):
+                        ticker_info += f" | Alternative: {commodity_info['alternative_ticker']}"
+                elif commodity_info.get('alternative_ticker'):
+                    ticker_info = f"Alternative Ticker: {commodity_info['alternative_ticker']}"
+            
+            # Last value display
+            last_value_text = "No data available"
+            if last_price is not None and last_date is not None:
+                last_value_text = f"{format_price(last_price, commodity_info.get('units', 'N/A'))} on {last_date.strftime('%Y-%m-%d')}"
+            
             with st.expander(f"{status_icon} {commodity_name}"):
+                # Description and ticker info
+                st.markdown(f"**Description**: {description}")
+                st.markdown(f"**Ticker Information**: {ticker_info}")
+                st.markdown(f"**Last Value**: {last_value_text}")
+                
                 if not result['valid']:
                     st.markdown("### Issues")
                     for issue in result['issues']:
@@ -723,9 +791,23 @@ class Dashboard:
                 # Display metrics if available
                 if result['metrics']:
                     st.markdown("### Metrics")
+                    
+                    # Format date range nicely if available
+                    metrics_display = {}
+                    for k, v in result['metrics'].items():
+                        if k == 'date_range' and isinstance(v, list) and len(v) == 2:
+                            try:
+                                metrics_display[k] = f"{v[0].strftime('%Y-%m-%d')} to {v[1].strftime('%Y-%m-%d')}"
+                            except:
+                                metrics_display[k] = str(v)
+                        elif isinstance(v, float):
+                            metrics_display[k] = f"{v:.2f}"
+                        else:
+                            metrics_display[k] = str(v)
+                    
                     metrics_df = pd.DataFrame({
-                        'Metric': list(result['metrics'].keys()),
-                        'Value': list(result['metrics'].values())
+                        'Metric': list(metrics_display.keys()),
+                        'Value': list(metrics_display.values())
                     })
                     st.dataframe(metrics_df)
         
@@ -769,7 +851,7 @@ class Dashboard:
         
         data = self.load_data(filters)
         
-        # Create tabs for different views - put cards first
+        # Create tabs for different views - cards first, then API status tab after detailed analysis
         cards_tab, overview_tab, details_tab, api_status_tab = st.tabs([
             "🔍 Price Cards", 
             "📊 Market Overview", 
