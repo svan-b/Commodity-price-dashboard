@@ -91,15 +91,44 @@ def main():
         }
         
         /* Tables */
-        div.stTable, div.dataframe {
+        div.stTable, div.dataframe, [data-testid="stTable"] {
             background-color: white !important;
             color: #262730 !important;
         }
-        
+
         /* Table headers and cells */
-        th, td {
+        th, td, thead tr th, tbody tr th, tbody tr td {
             background-color: white !important;
             color: #262730 !important;
+        }
+
+        /* DataFrames */
+        [data-testid="stDataFrame"] {
+            background-color: white !important;
+        }
+
+        /* DataFrame Headers */
+        [data-testid="stDataFrame"] div[role="columnheader"] {
+            background-color: #f8f9fa !important;
+            color: #262730 !important;
+        }
+
+        /* DataFrame cells */
+        [data-testid="stDataFrame"] div[role="gridcell"] {
+            background-color: white !important;
+            color: #262730 !important;
+        }
+
+        /* Pagination controls */
+        button.step-up, button.step-down, div.pagination {
+            background-color: white !important;
+            color: #262730 !important;
+            border-color: #e1e1e1 !important;
+        }
+
+        /* Table container */
+        div.stDataFrame > div {
+            background-color: white !important;
         }
         
         /* Code blocks and text areas */
@@ -109,7 +138,42 @@ def main():
         }
         
         /* Charts and plots */
-        div.stPlotlyChart, div.stBokehChart {
+        div.stPlotlyChart, div.stBokehChart, div[data-testid="stChart"] {
+            background-color: white !important;
+        }
+
+        /* Chart-specific elements */
+        .js-plotly-plot, .plotly, .plot-container {
+            background-color: white !important;
+        }
+
+        /* Chart axes and text */
+        g.xtick text, g.ytick text {
+            fill: #262730 !important;
+        }
+
+        /* Chart gridlines */
+        .gridline, .xgrid, .ygrid {
+            stroke: #e1e1e1 !important;
+        }
+
+        /* Chart background elements */
+        .bg, rect.background {
+            fill: white !important;
+        }
+
+        /* Chart for Vega-Lite based charts */
+        .marks, .mark-group, .mark-rect rect {
+            fill: white !important;
+        }
+
+        /* Line chart line */
+        path.marks {
+            stroke: #00103f !important;
+        }
+
+        /* Streamlit native chart background */
+        section[data-testid="stDecoration"], section[data-testid="stDecoration"] div {
             background-color: white !important;
         }
         
@@ -120,6 +184,49 @@ def main():
             --secondary-background-color: #f8f9fa;
             --text-color: #262730;
             --font: "sans-serif";
+        }
+
+        /* Tabs */
+        button[role="tab"] {
+            background-color: #f8f9fa !important;
+            color: #262730 !important;
+        }
+
+        button[role="tab"][aria-selected="true"] {
+            background-color: white !important;
+            color: #00103f !important;
+            border-bottom-color: #00103f !important;
+        }
+
+        div[role="tablist"] {
+            background-color: #f8f9fa !important;
+        }
+
+        div[role="tabpanel"] {
+            background-color: white !important;
+        }
+
+        /* Expand/Collapse sections */
+        details {
+            background-color: white !important;
+        }
+
+        details summary {
+            background-color: #f8f9fa !important;
+            color: #262730 !important;
+        }
+
+        /* Override any remaining dark mode elements */
+        [data-testid="stAppViewBlockContainer"] {
+            background-color: white !important;
+        }
+
+        div[data-baseweb="select"] {
+            background-color: white !important;
+        }
+
+        div[data-baseweb="base-input"] {
+            background-color: white !important;
         }
     </style>
     """, unsafe_allow_html=True)
@@ -255,9 +362,32 @@ def main():
         
         # Create a chart
         st.subheader(f"{selected_commodity} Price History")
-        
+
         chart_data = df[["Date", "Price"]].copy()
-        st.line_chart(chart_data.set_index("Date"))
+
+        # Custom chart with light mode colors
+        st.line_chart(
+            chart_data.set_index("Date"),
+            color="#00103f",  # Teck blue color for the line
+            height=400,
+            use_container_width=True
+        )
+
+        # Add a custom style just for the chart area
+        st.markdown("""
+        <style>
+        /* Override chart styles specifically */
+        .element-container div[data-testid="stChart"] svg {
+            background-color: white !important;
+        }
+        .element-container div[data-testid="stChart"] g.cartesianlayer {
+            background-color: white !important;
+        }
+        .element-container div[data-testid="stChart"] path.xgrid, .element-container div[data-testid="stChart"] path.ygrid {
+            stroke: #e1e1e1 !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
         
         # Add statistics
         st.subheader("Price Statistics")
