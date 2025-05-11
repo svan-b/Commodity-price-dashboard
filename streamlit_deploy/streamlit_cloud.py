@@ -1,6 +1,6 @@
 """
 Main entry point for Streamlit Cloud deployment.
-This file should be specified as the main file path in Streamlit Cloud.
+This is a simple wrapper for the standalone app.
 """
 
 import os
@@ -8,7 +8,7 @@ import sys
 import logging
 import streamlit as st
 
-# Configure logging to avoid excessive disk usage
+# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -16,52 +16,46 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def main():
-    """
-    Main entry point for full dashboard deployment.
-    """
+# Import the standalone app
+logger.info("Importing standalone app...")
+try:
+    # First try importing directly from current location
+    # This is the path structure on Streamlit Cloud
+    import app_standalone
+    
+    logger.info("Running app_standalone via direct import")
+    app_standalone.main()
+except ImportError as e:
+    logger.warning(f"Error importing app_standalone directly: {str(e)}")
+    
     try:
-        logger.info("Starting Streamlit Cloud app - FULL PRODUCTION MODE")
+        # Try relative import from streamlit_deploy (local development)
+        from streamlit_deploy import app_standalone
         
-        # Try to ensure directories exist
+        logger.info("Running app_standalone via package import")
+        app_standalone.main()
+    except ImportError as e2:
+        logger.error(f"Error importing app_standalone via package: {str(e2)}")
+        
+        # Fall back to directly running the code
+        logger.info("Falling back to direct execution")
+        
+        # Display error and environment info
+        st.set_page_config(page_title="Commodity Dashboard - Error", page_icon="⚠️")
+        st.title("Commodity Price Dashboard")
+        st.error("Could not load the application.")
+        
+        st.markdown("### Error Information")
+        st.code(f"Direct import error: {str(e)}")
+        st.code(f"Package import error: {str(e2)}")
+        
+        st.markdown("### Environment Information")
+        st.code(f"Python version: {sys.version}")
+        st.code(f"Working directory: {os.getcwd()}")
+        
+        # List files in current directory
         try:
-            from setup_cloud import ensure_directories
-            ensure_directories()
-        except Exception as setup_error:
-            logger.warning(f"Error ensuring directories: {str(setup_error)}")
-            
-        # First try to run the simplified test app
-        try:
-            from streamlit_deploy.simple_app import main as simple_main
-            simple_main()
-            return
-        except Exception as e1:
-            logger.warning(f"Error running simplified app: {str(e1)}")
-            
-            # Fall back to simple error display
-            st.set_page_config(page_title="Commodity Dashboard", page_icon="📊", layout="wide")
-            st.title("Commodity Price Dashboard")
-            
-            st.error("Unable to initialize the application. Please try again later.")
-            st.markdown("### Error Details")
-            st.code(str(e1))
-            
-            # Show environment info
-            st.markdown("### Environment Information")
-            st.code(f"Python version: {sys.version}")
-            st.code(f"Working directory: {os.getcwd()}")
-            
-            # List available directories
-            try:
-                dirs = os.listdir(".")
-                st.code(f"Contents of current directory: {dirs}")
-            except Exception as e2:
-                st.warning(f"Could not list directory contents: {e2}")
-            
-    except Exception as e:
-        # Last resort error display
-        st.title("Commodity Price Dashboard - Error")
-        st.error(f"Critical error: {str(e)}")
-
-if __name__ == "__main__":
-    main()
+            files = os.listdir(".")
+            st.code(f"Files in current directory: {files}")
+        except Exception as e3:
+            st.code(f"Could not list files: {str(e3)}")
