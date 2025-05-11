@@ -24,8 +24,118 @@ def main():
     st.set_page_config(
         page_title="Commodity Dashboard",
         page_icon="📊",
-        layout="wide"
+        layout="wide",
+        initial_sidebar_state="expanded"
     )
+    
+    # Force light mode theme via JavaScript and CSS
+    st.markdown("""
+    <script>
+        // Force Streamlit into light mode
+        localStorage.setItem('theme', 'light');
+        localStorage.setItem('isLightMode', 'true');
+        
+        // Try to apply theme immediately
+        if (window.parent.document.querySelector('.stApp')) {
+            window.parent.document.querySelector('.stApp').classList.remove('stDarkMode');
+            window.parent.document.querySelector('.stApp').classList.add('stLightMode');
+        }
+    </script>
+    
+    <style>
+        /* Force light mode with !important flags */
+        .stApp {
+            background-color: white !important;
+        }
+        
+        body {
+            background-color: white !important;
+            color: #262730 !important;
+        }
+        
+        /* Text color */
+        p, div, span, li, td, th, code, input {
+            color: #262730 !important;
+        }
+        
+        /* Headers */
+        h1, h2, h3, h4, h5, h6 {
+            color: #00103f !important;
+        }
+        
+        /* Sidebar */
+        section[data-testid="stSidebar"] {
+            background-color: #f8f9fa !important;
+            color: #262730 !important;
+        }
+        
+        /* Containers */
+        div.element-container {
+            background-color: white !important;
+        }
+        
+        /* Cards and containers */
+        div.css-1r6slb0, div.css-keje6w, div.css-1rdtc19 {
+            background-color: white !important;
+            border: 1px solid #eaecef !important;
+        }
+        
+        /* Main content area */
+        .main .block-container {
+            background-color: white !important;
+        }
+        
+        /* Widgets background */
+        div.stWidgetRow, div.stSlider, div.stCheckbox, div.stRadio, div.stFileUploader {
+            background-color: white !important;
+        }
+        
+        /* Tables */
+        div.stTable, div.dataframe {
+            background-color: white !important;
+            color: #262730 !important;
+        }
+        
+        /* Table headers and cells */
+        th, td {
+            background-color: white !important;
+            color: #262730 !important;
+        }
+        
+        /* Code blocks and text areas */
+        div.stCodeBlock > div, pre {
+            background-color: #f6f6f6 !important;
+            color: #2c3e50 !important;
+        }
+        
+        /* Charts and plots */
+        div.stPlotlyChart, div.stBokehChart {
+            background-color: white !important;
+        }
+        
+        /* Force light mode for all elements using CSS variables */
+        :root {
+            --primary-color: #00103f;
+            --background-color: white;
+            --secondary-background-color: #f8f9fa;
+            --text-color: #262730;
+            --font: "sans-serif";
+        }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Set theme explicitly to light
+    st.markdown("""
+    <script>
+        const doc = window.parent.document;
+        const localStore = window.parent.localStorage;
+        localStore.setItem('color-theme', 'light');
+        const htmlElement = doc.querySelector("html");
+        if (htmlElement && htmlElement.classList.contains('dark')) {
+            htmlElement.classList.remove('dark');
+        }
+    </script>
+    """, unsafe_allow_html=True)
     
     st.title("Commodity Price Dashboard")
     
