@@ -365,26 +365,66 @@ def main():
 
         chart_data = df[["Date", "Price"]].copy()
 
-        # Custom chart with light mode colors
-        st.line_chart(
-            chart_data.set_index("Date"),
-            color="#00103f",  # Teck blue color for the line
-            height=400,
-            use_container_width=True
+        # Let's use Plotly instead of Streamlit's native charts for better control
+        import plotly.express as px
+
+        fig = px.line(
+            chart_data,
+            x="Date",
+            y="Price",
+            title=f"{selected_commodity} Price History",
+            template="plotly_white"  # Use a white template
         )
 
-        # Add a custom style just for the chart area
+        # Customize the chart appearance
+        fig.update_layout(
+            plot_bgcolor="white",
+            paper_bgcolor="white",
+            font_color="#262730",
+            title_font_color="#00103f",
+            legend_font_color="#262730",
+            xaxis=dict(
+                title="",
+                gridcolor="#e1e1e1",
+                zerolinecolor="#e1e1e1",
+                tickfont=dict(color="#262730"),
+                titlefont=dict(color="#262730")
+            ),
+            yaxis=dict(
+                title=f"Price ({df['Units'].iloc[0]})",
+                gridcolor="#e1e1e1",
+                zerolinecolor="#e1e1e1",
+                tickfont=dict(color="#262730"),
+                titlefont=dict(color="#262730")
+            )
+        )
+
+        # Update line color
+        fig.update_traces(line_color="#00103f")
+
+        # Display the chart
+        st.plotly_chart(fig, use_container_width=True)
+
+        # Add extra CSS to ensure Plotly charts display in light mode
         st.markdown("""
         <style>
-        /* Override chart styles specifically */
-        .element-container div[data-testid="stChart"] svg {
+        /* Force Plotly charts to use light mode */
+        .js-plotly-plot .plotly .main-svg {
             background-color: white !important;
         }
-        .element-container div[data-testid="stChart"] g.cartesianlayer {
+
+        .js-plotly-plot .plotly .svg-container {
             background-color: white !important;
         }
-        .element-container div[data-testid="stChart"] path.xgrid, .element-container div[data-testid="stChart"] path.ygrid {
-            stroke: #e1e1e1 !important;
+
+        /* Ensure modebar (plotly controls) use light colors */
+        .js-plotly-plot .plotly .modebar {
+            background-color: white !important;
+            fill: #262730 !important;
+        }
+
+        .js-plotly-plot .plotly .modebar-btn path {
+            fill: #262730 !important;
         }
         </style>
         """, unsafe_allow_html=True)
@@ -423,13 +463,45 @@ def main():
         # Display the last 10 days of data
         recent_data = df.sort_values("Date", ascending=False).head(10)
         recent_data["Date"] = recent_data["Date"].dt.strftime("%Y-%m-%d")
-        
+
         if "USD" in units:
             recent_data["Formatted Price"] = recent_data["Price"].apply(lambda x: f"${x:.2f}")
         else:
             recent_data["Formatted Price"] = recent_data["Price"].apply(lambda x: f"{x:.2f}")
-            
-        st.dataframe(recent_data[["Date", "Formatted Price"]], hide_index=True)
+
+        # Use HTML table instead of Streamlit's dataframe for better control over styling
+        html_table = """
+        <div style="overflow-x: auto; margin-top: 1rem;">
+        <table style="width: 100%; border-collapse: collapse; background-color: white; color: #262730;">
+            <thead>
+                <tr style="background-color: #f8f9fa; color: #262730; text-align: left;">
+                    <th style="padding: 8px 12px; border-bottom: 1px solid #e1e1e1;">Date</th>
+                    <th style="padding: 8px 12px; border-bottom: 1px solid #e1e1e1;">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+        """
+
+        # Add rows to the table
+        for _, row in recent_data[["Date", "Formatted Price"]].iterrows():
+            html_table += f"""
+                <tr style="background-color: white; color: #262730;">
+                    <td style="padding: 8px 12px; border-bottom: 1px solid #f5f5f5;">{row['Date']}</td>
+                    <td style="padding: 8px 12px; border-bottom: 1px solid #f5f5f5;">{row['Formatted Price']}</td>
+                </tr>
+            """
+
+        html_table += """
+            </tbody>
+        </table>
+        </div>
+        """
+
+        st.markdown(html_table, unsafe_allow_html=True)
+
+        # Also include the dataframe (hidden) for download functionality
+        with st.expander("Download Data"):
+            st.dataframe(recent_data[["Date", "Formatted Price"]], hide_index=True)
     
     # Footer
     st.markdown("""
