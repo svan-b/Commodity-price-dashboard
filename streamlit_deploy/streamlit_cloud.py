@@ -16,92 +16,134 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Ensure all required directories exist
-from setup_cloud import ensure_directories
-ensure_directories()
-
-# Add project root to path
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(PROJECT_ROOT)
-
-# Import the optimized StreamlitDataLogger
-from streamlit_deploy.optimized_data_logger import StreamlitDataLogger
-
-# Get configurations and necessary modules
-from src.config import (
-    TECK_BLUE, DASHBOARD_TITLE, DASHBOARD_SUBTITLE,
-    DEFAULT_TIMEFRAME, DEFAULT_DATA_FREQUENCY,
-    AVAILABLE_TIMEFRAMES, AVAILABLE_FREQUENCIES,
-    CATEGORIES, COMMODITIES
-)
-from src.data.bloomberg_api import BloombergAPI
-from src.data.data_validator import DataValidator
-from src.utils.helpers import (
-    format_price, calculate_change, create_price_chart,
-    create_multi_commodity_chart, get_data_update_text,
-    format_change_value
-)
-
-# Import and modify the Dashboard class
-from src.ui.dashboard import Dashboard
-
-# Create a modified init method for the Dashboard class
-original_init = Dashboard.__init__
-
-def patched_init(self):
-    """Patched initialization that uses optimized components for Streamlit Cloud"""
-    # Initialize services
-    self.bloomberg_api = BloombergAPI()
-    self.data_validator = DataValidator()
-    
-    # Use the cloud-optimized data logger instead
-    self.data_logger = StreamlitDataLogger(log_dir="logs")
-    
-    # Configure the page
-    self.configure_page()
-    
-    logger.info("Dashboard initialized with cloud optimizations")
-
-# Apply the patch
-Dashboard.__init__ = patched_init
-
-# Add performance optimizations
-@st.cache_data(ttl=3600)  # Cache for one hour
-def get_cached_commodity_data(commodity, start_date, end_date, freq):
-    """Cache commodity data to reduce API calls and improve performance"""
-    return BloombergAPI().get_commodity_data(commodity, start_date, end_date, freq)
-
-# Modify the Bloomberg API to use caching
-original_get_commodity_data = BloombergAPI.get_commodity_data
-
-def patched_get_commodity_data(self, commodity_name, start_date=None, end_date=None, freq='daily'):
-    """Patched method that uses caching for better performance"""
-    return get_cached_commodity_data(commodity_name, start_date, end_date, freq)
-
-# Apply the patch to use caching
-BloombergAPI.get_commodity_data = patched_get_commodity_data
-
 def main():
-    """Main entry point for the Streamlit Cloud app"""
-    # Configure page settings
-    st.set_page_config(
-        page_title=DASHBOARD_TITLE,
-        page_icon="📊",
-        layout="wide",
-        initial_sidebar_state="expanded"
-    )
-    
-    # Add a small note about Streamlit Cloud deployment
-    st.sidebar.markdown("""
-    <div style="background-color: #f0f2f6; padding: 10px; border-radius: 5px; margin-top: 20px; font-size: 0.8rem;">
-        <p style="margin: 0;">Running on Streamlit Cloud</p>
-        <p style="margin: 5px 0 0 0;">Optimized for cloud deployment</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Initialize and run the dashboard
-    dashboard = Dashboard()
-    dashboard.run()
+    """
+    Main entry point with fallback options.
+    """
+    try:
+        logger.info("Starting Streamlit Cloud app...")
+
+        # Try to ensure directories exist
+        try:
+            from setup_cloud import ensure_directories
+            ensure_directories()
+        except Exception as setup_error:
+            logger.warning(f"Error ensuring directories: {str(setup_error)}")
+
+        # First try to run the simplified app for testing
+        logger.info("Trying to run simple test app...")
+        try:
+            from streamlit_deploy.simple_app import main as simple_main
+            return simple_main()
+        except Exception as e1:
+            logger.warning(f"Error running simple app: {str(e1)}")
+
+            # Try to run the full app
+            try:
+                # Add project root to sys.path
+                logger.info("Adding project root to sys.path...")
+                PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+                sys.path.append(PROJECT_ROOT)
+
+                # Import the optimized StreamlitDataLogger
+                from streamlit_deploy.optimized_data_logger import StreamlitDataLogger
+
+                # Import and modify the Dashboard class
+                from src.ui.dashboard import Dashboard
+
+                # Patch Dashboard to use cloud-optimized components
+                original_init = Dashboard.__init__
+
+                def patched_init(self):
+                    """Patched initialization with cloud optimizations"""
+                    from src.data.bloomberg_api import BloombergAPI
+                    from src.data.data_validator import DataValidator
+
+                    # Initialize with cloud-optimized services
+                    self.bloomberg_api = BloombergAPI()
+                    self.data_validator = DataValidator()
+                    self.data_logger = StreamlitDataLogger(log_dir="logs")
+                    self.configure_page()
+
+                # Apply the patch
+                Dashboard.__init__ = patched_init
+
+                # Add data caching
+                @st.cache_data(ttl=3600)
+                def get_cached_commodity_data(commodity, start_date, end_date, freq):
+                    """Cache commodity data to reduce API calls"""
+                    from src.data.bloomberg_api import BloombergAPI
+                    return BloombergAPI().get_commodity_data(commodity, start_date, end_date, freq)
+
+                # Patch Bloomberg API
+                from src.data.bloomberg_api import BloombergAPI
+                original_get_data = BloombergAPI.get_commodity_data
+
+                def patched_get_data(self, commodity_name, start_date=None, end_date=None, freq='daily'):
+                    return get_cached_commodity_data(commodity_name, start_date, end_date, freq)
+
+                BloombergAPI.get_commodity_data = patched_get_data
+
+                logger.info("Trying to run full app...")
+
+                # Add Streamlit Cloud indicator
+                def add_cloud_indicator():
+                    st.sidebar.markdown("""
+                    <div style="background-color: #f0f2f6; padding: 10px; border-radius: 5px; margin-top: 20px; font-size: 0.8rem;">
+                        <p style="margin: 0;">Running on Streamlit Cloud</p>
+                        <p style="margin: 5px 0 0 0;">Optimized for cloud deployment</p>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+                # Try to monkey patch the dashboard run method to add the indicator
+                original_run = Dashboard.run
+
+                def patched_run(self):
+                    add_cloud_indicator()
+                    return original_run(self)
+
+                Dashboard.run = patched_run
+
+                # Run the dashboard
+                dashboard = Dashboard()
+                dashboard.run()
+                return
+
+            except Exception as e2:
+                logger.warning(f"Error running full app: {str(e2)}")
+
+                # Fall back to a basic Streamlit interface
+                st.set_page_config(page_title="Commodity Dashboard", page_icon="📊", layout="wide")
+                st.title("Commodity Price Dashboard")
+
+                st.error("Unable to load the full dashboard at this time.")
+                st.markdown("### Troubleshooting Information")
+
+                with st.expander("Environment Information"):
+                    st.code(f"Python version: {sys.version}")
+                    st.code(f"Current directory: {os.getcwd()}")
+                    st.code(f"Files in current directory: {os.listdir('.')}")
+
+                    try:
+                        st.code(f"Files in parent directory: {os.listdir('..')}")
+                    except Exception as e:
+                        st.code(f"Unable to list parent directory: {str(e)}")
+
+                with st.expander("Error Details"):
+                    st.text(f"Simple app error: {str(e1)}")
+                    st.text(f"Full app error: {str(e2)}")
+
+                # Provide a way to contact support
+                st.markdown("""
+                Please contact support with the information shown in the troubleshooting section above.
+                """)
+
+    except Exception as e:
+        logger.error(f"Unexpected error in main: {str(e)}", exc_info=True)
+        # Fallback to absolute minimum interface
+        st.title("Commodity Price Dashboard")
+        st.error("Unable to initialize the application. Please try again later.")
+        st.code(f"Error: {str(e)}")
 
 if __name__ == "__main__":
     main()
