@@ -1,18 +1,14 @@
 """
-Streamlit Cloud entry point for the Commodity Price Dashboard.
-Optimized version for reliable hosting with reduced disk usage.
+Streamlit Cloud deployment entry point.
+Tries different approaches to ensure the app runs successfully.
 """
 
 import os
 import sys
 import logging
 import streamlit as st
-import pandas as pd
-from datetime import datetime, timedelta
-import plotly.graph_objects as go
-import numpy as np
 
-# Configure logging to stderr to avoid disk writes
+# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -20,80 +16,68 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Add project root to path
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(PROJECT_ROOT)
-
-# Import the optimized data logger
-from streamlit_deploy.optimized_data_logger import StreamlitDataLogger
-
-# Import project modules
-from src.config import (
-    TECK_BLUE, COPPER_ORANGE, BACKGROUND_WHITE, TEXT_COLOR,
-    DASHBOARD_TITLE, DASHBOARD_SUBTITLE,
-    DEFAULT_TIMEFRAME, DEFAULT_DATA_FREQUENCY,
-    AVAILABLE_TIMEFRAMES, AVAILABLE_FREQUENCIES,
-    CATEGORIES, COMMODITIES
-)
-from src.data.bloomberg_api import BloombergAPI
-from src.data.data_validator import DataValidator
-from src.utils.helpers import (
-    format_price, calculate_change, create_price_chart,
-    create_multi_commodity_chart, get_data_update_text,
-    format_change_value
-)
-
-# Modify Dashboard class to use the optimized data logger
-from src.ui.dashboard import Dashboard
-
-# Before running the main Dashboard, patch it to use our optimized logger
-original_init = Dashboard.__init__
-
-def optimized_init(self):
-    """Optimized initialization that uses the StreamlitDataLogger"""
-    # Initialize Bloomberg API and DataValidator
-    self.bloomberg_api = BloombergAPI()
-    self.data_validator = DataValidator()
-    
-    # Use the optimized data logger instead of the standard one
-    self.data_logger = StreamlitDataLogger(log_dir="logs")
-    
-    # Call the configure_page method
-    self.configure_page()
-    
-    logger.info("Dashboard initialized with optimized data logger")
-
-# Apply the patch
-Dashboard.__init__ = optimized_init
-
 def main():
     """
-    Main entry point for the Streamlit app
+    Main entry point with fallback options.
     """
-    # Set page title and favicon
-    st.set_page_config(
-        page_title=DASHBOARD_TITLE,
-        page_icon="📊",
-        layout="wide",
-        initial_sidebar_state="expanded"
-    )
-    
-    # Add caching for expensive operations
-    @st.cache_data(ttl=3600)  # Cache for one hour
-    def get_cached_commodity_data(commodity, start_date, end_date, freq):
-        return BloombergAPI().get_commodity_data(commodity, start_date, end_date, freq)
-    
-    # Add a note about Streamlit Cloud deployment
-    st.sidebar.markdown("""
-    <div style="background-color: #f0f2f6; padding: 10px; border-radius: 5px; margin-top: 20px; font-size: 0.8rem;">
-        <p style="margin: 0;">This dashboard is running on Streamlit Cloud.</p>
-        <p style="margin: 5px 0 0 0;">Some features may be optimized for cloud deployment.</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Create and run the dashboard
-    dashboard = Dashboard()
-    dashboard.run()
+    try:
+        logger.info("Starting Streamlit Cloud app...")
+        
+        # First try to run the simplified app for testing
+        logger.info("Trying to run simple test app...")
+        try:
+            from streamlit_deploy.simple_app import main as simple_main
+            return simple_main()
+        except Exception as e1:
+            logger.warning(f"Error running simple app: {str(e1)}")
+            
+            # Try to run the full app
+            try:
+                # Add project root to sys.path
+                logger.info("Adding project root to sys.path...")
+                PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+                sys.path.append(PROJECT_ROOT)
+                
+                logger.info("Trying to run full app...")
+                from src.ui.dashboard import Dashboard
+                dashboard = Dashboard()
+                dashboard.run()
+                return
+            except Exception as e2:
+                logger.warning(f"Error running full app: {str(e2)}")
+                
+                # Fall back to a basic Streamlit interface
+                st.set_page_config(page_title="Commodity Dashboard", page_icon="📊", layout="wide")
+                st.title("Commodity Price Dashboard")
+                
+                st.error("Unable to load the full dashboard at this time.")
+                st.markdown("### Troubleshooting Information")
+                
+                with st.expander("Environment Information"):
+                    st.code(f"Python version: {sys.version}")
+                    st.code(f"Current directory: {os.getcwd()}")
+                    st.code(f"Files in current directory: {os.listdir('.')}")
+                    
+                    try:
+                        st.code(f"Files in parent directory: {os.listdir('..')}")
+                    except Exception as e:
+                        st.code(f"Unable to list parent directory: {str(e)}")
+                
+                with st.expander("Error Details"):
+                    st.text(f"Simple app error: {str(e1)}")
+                    st.text(f"Full app error: {str(e2)}")
+                
+                # Provide a way to contact support
+                st.markdown("""
+                Please contact support with the information shown in the troubleshooting section above.
+                """)
+                
+    except Exception as e:
+        logger.error(f"Unexpected error in main: {str(e)}", exc_info=True)
+        # Fallback to absolute minimum interface
+        st.title("Commodity Price Dashboard")
+        st.error("Unable to initialize the application. Please try again later.")
+        st.code(f"Error: {str(e)}")
 
 if __name__ == "__main__":
     main()

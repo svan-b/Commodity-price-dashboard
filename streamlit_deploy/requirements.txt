@@ -4,3 +4,4 @@ numpy==1.26.0
 plotly==5.18.0
 xbbg==0.7.6
 python-dateutil==2.8.2
+matplotlib>=3.8.0
