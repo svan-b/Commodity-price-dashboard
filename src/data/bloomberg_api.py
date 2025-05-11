@@ -93,13 +93,10 @@ class BloombergAPI:
         if not end_date:
             end_date = datetime.now().strftime('%Y-%m-%d')
         if not start_date:
-            # Default to 1 year lookback, or longer for monthly data to ensure enough points
-            if freq == 'monthly':
-                start_date = (datetime.now() - timedelta(days=3650)).strftime('%Y-%m-%d')  # ~10 years
-            elif freq == 'weekly':
-                start_date = (datetime.now() - timedelta(days=730)).strftime('%Y-%m-%d')  # ~2 years
-            else:
-                start_date = (datetime.now() - timedelta(days=365)).strftime('%Y-%m-%d')  # 1 year
+            # Default to the maximum available history to ensure we see all available data
+            # For all frequencies, use 10 years of history by default
+            # This ensures complete data is available for the detailed analysis
+            start_date = (datetime.now() - timedelta(days=3650)).strftime('%Y-%m-%d')  # ~10 years
             
         logger.info(f"Fetching {freq} data for {ticker} from {start_date} to {end_date}")
         
@@ -234,30 +231,50 @@ class BloombergAPI:
     def get_commodity_data(self, commodity_name, start_date=None, end_date=None, freq='daily'):
         """
         Get historical data for a commodity by name.
-        
+
         Args:
             commodity_name (str): Name of the commodity
             start_date (str, optional): Start date in YYYY-MM-DD format
             end_date (str, optional): End date in YYYY-MM-DD format
             freq (str, optional): Data frequency - 'daily', 'weekly', or 'monthly'
-            
+
         Returns:
             pd.DataFrame: DataFrame with historical price data
         """
         # Find the commodity configuration
         commodity = next((c for c in COMMODITIES if c['name'] == commodity_name), None)
-        
+
         if not commodity:
             logger.error(f"Commodity '{commodity_name}' not found in configuration")
             return pd.DataFrame(columns=['Date', 'Price'])
-            
+
+        # Extend the start date to ensure we have enough historical data for change calculations
+        extended_start_date = start_date
+
+        # Convert date strings to datetime objects for manipulation if needed
+        if start_date:
+            start_dt = pd.to_datetime(start_date)
+
+            # For daily data, ensure 45 days of historical data
+            if freq == 'daily':
+                extended_start = start_dt - timedelta(days=45)
+            # For weekly data, ensure 90 days of historical data
+            elif freq == 'weekly':
+                extended_start = start_dt - timedelta(days=90)
+            # For monthly data, ensure 450 days of historical data (15 months)
+            else:
+                extended_start = start_dt - timedelta(days=450)
+
+            extended_start_date = extended_start.strftime('%Y-%m-%d')
+            logger.info(f"Extended start date from {start_date} to {extended_start_date} for {commodity_name} to ensure proper historical data")
+
         # Try preferred ticker first
         df = pd.DataFrame()
         if commodity['preferred_ticker']:
             df = self.get_historical_data(
-                commodity['preferred_ticker'], 
-                start_date, 
-                end_date, 
+                commodity['preferred_ticker'],
+                extended_start_date,
+                end_date,
                 freq
             )
             
@@ -274,9 +291,9 @@ class BloombergAPI:
         if df.empty or len(df) < 10:  # Arbitrary threshold for "enough data"
             if commodity['alternative_ticker']:
                 alt_df = self.get_historical_data(
-                    commodity['alternative_ticker'], 
-                    start_date, 
-                    end_date, 
+                    commodity['alternative_ticker'],
+                    extended_start_date,
+                    end_date,
                     freq
                 )
                 
@@ -298,7 +315,15 @@ class BloombergAPI:
         if df.empty and commodity_name in self.sample_data:
             logger.info(f"Using sample data for {commodity_name} after Bloomberg retrieval failed")
             df = self.sample_data[commodity_name].copy()
-            
+
+            # Filter sample data to match requested date range instead of using all data
+            if start_date:
+                start_dt = pd.to_datetime(start_date)
+                df = df[df['Date'] >= start_dt]
+            if end_date:
+                end_dt = pd.to_datetime(end_date)
+                df = df[df['Date'] <= end_dt]
+
             # Add metadata columns
             df['Commodity'] = commodity_name
             df['Units'] = commodity['units']
@@ -316,36 +341,59 @@ class BloombergAPI:
     def get_all_commodity_data(self, category=None, start_date=None, end_date=None, freq='monthly'):
         """
         Get data for all commodities or filtered by category.
-        
+
         Args:
             category (str, optional): Filter by category
             start_date (str, optional): Start date
             end_date (str, optional): End date
             freq (str, optional): Data frequency
-            
+
         Returns:
             dict: Dictionary of commodity names to their data DataFrames
         """
         results = {}
-        
+
         # Get list of commodities to fetch
         commodities_to_fetch = [c for c in COMMODITIES if not category or c['category'] == category]
-        
+        logger.info(f"Attempting to fetch data for {len(commodities_to_fetch)} commodities with frequency '{freq}'")
+
+        success_count = 0
+
         for commodity in commodities_to_fetch:
             commodity_name = commodity['name']
-            logger.info(f"Fetching data for {commodity_name}")
-            
+            logger.info(f"Fetching {freq} data for {commodity_name} from {start_date or 'default'} to {end_date or 'now'}")
+
             try:
                 df = self.get_commodity_data(commodity_name, start_date, end_date, freq)
-                
+
                 if not df.empty:
+                    # Log the time range of data
+                    min_date = df['Date'].min().strftime('%Y-%m-%d')
+                    max_date = df['Date'].max().strftime('%Y-%m-%d')
+                    data_points = len(df)
+                    logger.info(f"Retrieved {data_points} data points for {commodity_name} ({min_date} to {max_date})")
+
+                    # Calculate the average time gap between data points
+                    if len(df) > 1:
+                        date_diffs = [(df['Date'].iloc[i] - df['Date'].iloc[i-1]).days
+                                      for i in range(1, len(df))]
+                        avg_gap = sum(date_diffs) / len(date_diffs)
+                        logger.info(f"Average time gap between data points for {commodity_name}: {avg_gap:.1f} days")
+
                     results[commodity_name] = df
+                    success_count += 1
                 else:
                     logger.warning(f"Empty result for {commodity_name}, skipping")
             except Exception as e:
-                logger.error(f"Error fetching {commodity_name}: {str(e)}")
+                logger.error(f"Error fetching {commodity_name}: {str(e)}", exc_info=True)
                 # Continue with other commodities even if one fails
                 continue
-                
-        logger.info(f"Retrieved data for {len(results)}/{len(commodities_to_fetch)} commodities")
+
+        # Log detailed summary
+        logger.info(f"Retrieved data for {success_count}/{len(commodities_to_fetch)} commodities")
+
+        if success_count < len(commodities_to_fetch):
+            missing = [c['name'] for c in commodities_to_fetch if c['name'] not in results]
+            logger.warning(f"Missing data for: {', '.join(missing)}")
+
         return results

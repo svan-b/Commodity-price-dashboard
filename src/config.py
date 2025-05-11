@@ -324,19 +324,22 @@ def generate_sample_data():
     """Generate sample price data for commodities without Bloomberg access."""
     import pandas as pd
     import numpy as np
-    
+
     today = datetime.datetime.now()
-    
-    # Generate 5 years of monthly data
-    dates = pd.date_range(end=today, periods=60, freq='M')
-    
+
+    # Generate data spanning from 5 years ago to today (will be filtered by date range when used)
+    start_date = today - datetime.timedelta(days=5*365)
+
+    # Generate monthly data points
+    dates = pd.date_range(start=start_date, end=today, freq='M')
+
     # Generate sample data for all commodities to use as fallback
     sample_data = {}
-    
+
     # Sample data with realistic price ranges for each commodity
     for commodity in COMMODITIES:
         commodity_name = commodity['name']
-        
+
         # Set appropriate price range based on commodity type
         if 'units' in commodity:
             if 'USD/MT' in commodity['units']:
@@ -373,23 +376,29 @@ def generate_sample_data():
         else:
             base = 100
             volatility = 20
-        
-        # Create a time series with trend and seasonality
+
+        # Create a time series with trend and seasonality that starts at a reasonable value
+        # and doesn't have wild fluctuations
         t = np.linspace(0, 1, len(dates))
-        trend = base + volatility * (np.sin(t * 6) + 0.2 * np.cos(t * 15)) 
-        seasonality = volatility * 0.2 * np.sin(np.linspace(0, 12 * 5, len(dates)))
-        noise = np.random.normal(0, volatility * 0.1, size=len(dates))
-        
+
+        # More conservative trend calculation with less volatility
+        trend = base + volatility * 0.5 * np.sin(t * 4)
+        seasonality = volatility * 0.1 * np.sin(np.linspace(0, 6, len(dates)))
+        noise = np.random.normal(0, volatility * 0.05, size=len(dates))
+
         # Combine components
         prices = trend + seasonality + noise
-        
+
+        # Use a rolling mean to smooth out the data
+        prices = pd.Series(prices).rolling(window=3, min_periods=1).mean().values
+
         # Ensure no negative prices
-        prices = np.maximum(prices, base * 0.5)
-        
+        prices = np.maximum(prices, base * 0.7)
+
         # Create dataframe
         sample_data[commodity_name] = pd.DataFrame({
             'Date': dates,
             'Price': prices
         })
-    
+
     return sample_data
