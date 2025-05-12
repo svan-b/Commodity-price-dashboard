@@ -1,0 +1,3448 @@
+[
+  {
+    "timestamp": "2025-05-10T22:54:03.008568",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 16.67179,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 18,
+      "commodities_with_issues": 5,
+      "issue_details": {
+        "Oil (WTI)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 36 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T22:54:24.359584",
+    "filters_applied": {
+      "timeframe": "3M",
+      "start_date": "2025-02-09",
+      "end_date": "2025-05-10",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 11.74341,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 20,
+      "commodities_with_issues": 3,
+      "issue_details": {
+        "WCS Differential": [
+          "Contains 27 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 2 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T22:54:39.736697",
+    "filters_applied": {
+      "timeframe": "6M",
+      "start_date": "2024-11-11",
+      "end_date": "2025-05-10",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 12.542656,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 19,
+      "commodities_with_issues": 4,
+      "issue_details": {
+        "WCS Differential": [
+          "Contains 30 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 2 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:02:46.401139",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 19.652078,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:03:26.124418",
+    "filters_applied": {
+      "timeframe": "6M",
+      "start_date": "2024-11-11",
+      "end_date": "2025-05-10",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 16.13993,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 17,
+      "commodities_with_issues": 6,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:03:56.797814",
+    "filters_applied": {
+      "timeframe": "1M",
+      "start_date": "2025-04-10",
+      "end_date": "2025-05-10",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 15.527244,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 20,
+      "commodities_with_issues": 3,
+      "issue_details": {
+        "Nickel (Ni)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 72 negative prices",
+          "Contains 2 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:04:12.780763",
+    "filters_applied": {
+      "timeframe": "1M",
+      "start_date": "2025-04-10",
+      "end_date": "2025-05-10",
+      "frequency": "weekly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 13.104214,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 21,
+      "commodities_with_issues": 2,
+      "issue_details": {
+        "WCS Differential": [
+          "Contains 43 negative prices"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 5 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:05:26.097274",
+    "filters_applied": {
+      "timeframe": "1M",
+      "start_date": "2025-04-10",
+      "end_date": "2025-05-10",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 10.267225,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 20,
+      "commodities_with_issues": 3,
+      "issue_details": {
+        "Nickel (Ni)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 72 negative prices",
+          "Contains 2 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:12:37.694154",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 13.960074,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:12:50.227017",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 10.067658,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 16,
+      "commodities_with_issues": 7,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Nickel (Ni)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ],
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 279 negative prices",
+          "Contains 5 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:23:17.699023",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 15.685504,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:23:38.246839",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 12.625897,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 16,
+      "commodities_with_issues": 7,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Nickel (Ni)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ],
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 279 negative prices",
+          "Contains 5 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:28:47.822392",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 16.785556,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:28:58.582144",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 13.015703,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 16,
+      "commodities_with_issues": 7,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Nickel (Ni)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ],
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 279 negative prices",
+          "Contains 5 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:29:24.563260",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 11.04168,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 16,
+      "commodities_with_issues": 7,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Nickel (Ni)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ],
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 279 negative prices",
+          "Contains 5 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:30:08.967699",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 12.744122,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 16,
+      "commodities_with_issues": 7,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Nickel (Ni)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ],
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 279 negative prices",
+          "Contains 5 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:30:23.850902",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 10.398894,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 16,
+      "commodities_with_issues": 7,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Nickel (Ni)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ],
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 279 negative prices",
+          "Contains 5 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:48:15.491051",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 21.124695,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:48:47.022066",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 11.371235,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 19,
+      "commodities_with_issues": 4,
+      "issue_details": {
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:49:51.531267",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 9.862917,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 16,
+      "commodities_with_issues": 7,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Nickel (Ni)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ],
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 279 negative prices",
+          "Contains 5 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:52:00.244500",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Uranium (U)",
+        "Iron Ore"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Uranium (U)",
+      "Iron Ore"
+    ],
+    "render_time_seconds": 2.968497,
+    "validation_summary": {
+      "total_commodities": 6,
+      "valid_commodities": 5,
+      "commodities_with_issues": 1,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:52:24.185207",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Lithium (Li)",
+        "Iron Ore"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Lithium (Li)",
+      "Iron Ore"
+    ],
+    "render_time_seconds": 2.2207,
+    "validation_summary": {
+      "total_commodities": 4,
+      "valid_commodities": 3,
+      "commodities_with_issues": 1,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-10T23:52:26.588849",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Lithium (Li)"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Lithium (Li)"
+    ],
+    "render_time_seconds": 1.934961,
+    "validation_summary": {
+      "total_commodities": 3,
+      "valid_commodities": 2,
+      "commodities_with_issues": 1,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T10:07:29.960719",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 13.618835,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T12:03:31.590043",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 12.940528,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T12:40:12.463508",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 14.238414,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T12:41:22.021960",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 10.206075,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 16,
+      "commodities_with_issues": 7,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Nickel (Ni)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ],
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 279 negative prices",
+          "Contains 5 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T12:41:44.255050",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "weekly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 9.572352,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 20,
+      "commodities_with_issues": 3,
+      "issue_details": {
+        "WCS Differential": [
+          "Contains 91 negative prices"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 7 large price jumps (>50% change)"
+        ],
+        "Lithium (Li)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T12:42:03.839335",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 10.451598,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T12:42:31.433471",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 9.164012,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 16,
+      "commodities_with_issues": 7,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Nickel (Ni)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ],
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 279 negative prices",
+          "Contains 5 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T12:45:08.302634",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 12.118767,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T13:01:04.035108",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 13.716655,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T13:01:43.614418",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 9.047133,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 16,
+      "commodities_with_issues": 7,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Nickel (Ni)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ],
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 279 negative prices",
+          "Contains 5 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T13:04:07.629820",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 11.299108,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T13:09:39.056191",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 14.038874,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T13:10:16.268652",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 9.142105,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 16,
+      "commodities_with_issues": 7,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Nickel (Ni)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ],
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 279 negative prices",
+          "Contains 5 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T13:13:55.650188",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 13.364352,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T13:14:35.670037",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 9.666139,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 16,
+      "commodities_with_issues": 7,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Nickel (Ni)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ],
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 279 negative prices",
+          "Contains 5 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T13:18:53.504863",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "monthly",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 13.001945,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 14,
+      "commodities_with_issues": 9,
+      "issue_details": {
+        "Zinc (Zn)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Aluminum (Al)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Gold (Au)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 40 negative prices",
+          "Contains 1 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 3 large price jumps (>50% change)"
+        ],
+        "Molybdenum (Mo)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "Iron Ore": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-11T13:19:18.289553",
+    "filters_applied": {
+      "timeframe": "1Y",
+      "start_date": "2024-05-11",
+      "end_date": "2025-05-11",
+      "frequency": "daily",
+      "category": "all",
+      "selected_commodities": [
+        "Copper (Cu)",
+        "Zinc (Zn)",
+        "Nickel (Ni)",
+        "Lead (Pb)",
+        "Aluminum (Al)",
+        "Gold (Au)",
+        "Silver (Ag)",
+        "Platinum (Pt)",
+        "Oil (WTI)",
+        "WCS Differential",
+        "Natural Gas (AECO)",
+        "Sulphur",
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Germanium (Ge)",
+        "Molybdenum (Mo)",
+        "Uranium (U)",
+        "Antimony (Sb)",
+        "Indium (In)",
+        "Cadmium (Cd)",
+        "Iron Ore",
+        "Iron Ore Futures",
+        "US HRC Steel"
+      ]
+    },
+    "commodities_loaded": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Nickel (Ni)",
+      "Lead (Pb)",
+      "Aluminum (Al)",
+      "Gold (Au)",
+      "Silver (Ag)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Germanium (Ge)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ],
+    "render_time_seconds": 10.212362,
+    "validation_summary": {
+      "total_commodities": 23,
+      "valid_commodities": 16,
+      "commodities_with_issues": 7,
+      "issue_details": {
+        "Copper (Cu)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Nickel (Ni)": [
+          "Contains 3 potential outliers (|z-score| > 3)"
+        ],
+        "Silver (Ag)": [
+          "Contains 2 potential outliers (|z-score| > 3)"
+        ],
+        "Platinum (Pt)": [
+          "Contains 1 potential outliers (|z-score| > 3)"
+        ],
+        "WCS Differential": [
+          "Contains 279 negative prices",
+          "Contains 5 large price jumps (>50% change)"
+        ],
+        "Natural Gas (AECO)": [
+          "Contains 1 potential outliers (|z-score| > 3)",
+          "Contains 10 large price jumps (>50% change)"
+        ],
+        "Antimony (Sb)": [
+          "Contains 1 large price jumps (>50% change)"
+        ]
+      }
+    }
+  }
+]

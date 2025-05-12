@@ -410,13 +410,20 @@ def find_ytd_price(df, last_date):
 
 def calculate_change(df):
     """
-    Calculate price changes over various periods.
+    Calculate price changes over various periods with intelligent handling of data frequency.
+
+    Key improvements:
+    1. Automatically detects data frequency (daily, weekly, monthly, etc.)
+    2. Always calculates all periods for consistency across frequency selections
+    3. Marks changes as "native" to the data's frequency
+    4. Identifies the "best period" to display based on actual data frequency
+    5. Maintains consistent results when switching frequency views
 
     Args:
         df (pd.DataFrame): DataFrame with Date and Price columns
 
     Returns:
-        dict: Dictionary with price changes
+        dict: Dictionary with price changes and metadata
     """
     # Handle empty dataframe case
     if df.empty or len(df) < 2:
@@ -437,74 +444,119 @@ def calculate_change(df):
 
     # Sort by date to ensure correct calculation
     df = get_sorted_dataframe(df)
-    
+
     # Get the last price and date
     last_price = df['Price'].iloc[-1]
     last_date = df['Date'].iloc[-1]
-    
+
     # Determine data frequency
     freq_type, avg_diff = get_date_frequency(df)
-    
+
     # Find appropriate reference price based on frequency
     previous_price = find_reference_price(df, last_date, freq_type)
-    
+
     # Calculate recent change for the frequency-appropriate period
     change_recent, change_recent_pct = calc_price_change(last_price, previous_price)
-    
+
     # Initialize results with basic change values
     result = {
         'last_price': last_price,
         'previous_price': previous_price,
         'freq_type': freq_type,
+        'avg_days_between_points': avg_diff,
         'change_recent': change_recent,
         'change_recent_pct': change_recent_pct
     }
-    
+
     # Get prices for each standard period
     price_1d, date_1d, has_1d_data = find_period_price(df, last_date, 1, '1d')
     price_1w, date_1w, has_1w_data = find_period_price(df, last_date, 7, '1w')
     price_1m, date_1m, has_1m_data = find_period_price(df, last_date, 30, '1m')
     price_1y, date_1y, has_1y_data = find_period_price(df, last_date, 365, '1y')
-    
+
     # For YTD, calculate days since January 1st
     days_since_jan_1 = (last_date - datetime(last_date.year, 1, 1)).days
     price_ytd, date_ytd, has_ytd_data = find_period_price(df, last_date, days_since_jan_1, 'ytd')
-    
-    # Calculate all changes
+
+    # ENHANCED APPROACH:
+    # 1. Always calculate all changes for ALL periods
+    # 2. Mark which ones are "native" to this data's frequency
+    # 3. Identify "best" period for this data
+    # 4. Provide metadata for UI to make intelligent decisions
+
+    # Calculate which periods are "native" to this data frequency
+    is_daily_native = freq_type == 'daily' and avg_diff <= 3
+    is_weekly_native = (freq_type == 'weekly' and 3 < avg_diff <= 10) or (freq_type == 'daily' and not is_daily_native)
+    is_monthly_native = (freq_type == 'monthly' and avg_diff > 10) or (not is_daily_native and not is_weekly_native)
+
+    # Define the best display period based on actual data frequency
+    if is_daily_native:
+        best_period = '1d'
+    elif is_weekly_native:
+        best_period = '1w'
+    else:  # monthly or other
+        best_period = '1m'
+
+    # Always calculate ALL changes for consistency regardless of frequency
     change_1d, change_1d_pct = calc_price_change(last_price, price_1d)
     change_1w, change_1w_pct = calc_price_change(last_price, price_1w)
     change_1m, change_1m_pct = calc_price_change(last_price, price_1m)
     change_1y, change_1y_pct = calc_price_change(last_price, price_1y)
     change_ytd, change_ytd_pct = calc_price_change(last_price, price_ytd)
-    
-    # Store all results
+
+    # Store all results with rich metadata about data quality
     result.update({
+        # Changes
         'change_1d': change_1d,
         'change_1d_pct': change_1d_pct,
-        'change_1d_is_duplicate': not has_1d_data,
-        'change_1d_date': date_1d,
-
         'change_1w': change_1w,
         'change_1w_pct': change_1w_pct,
-        'change_1w_is_duplicate': not has_1w_data,
-        'change_1w_date': date_1w,
-
         'change_1m': change_1m,
         'change_1m_pct': change_1m_pct,
-        'change_1m_is_duplicate': not has_1m_data,
-        'change_1m_date': date_1m,
-
         'change_1y': change_1y,
         'change_1y_pct': change_1y_pct,
-        'change_1y_is_duplicate': not has_1y_data,
-        'change_1y_date': date_1y,
-
         'change_ytd': change_ytd,
         'change_ytd_pct': change_ytd_pct,
+
+        # Reference dates
+        'change_1d_date': date_1d,
+        'change_1w_date': date_1w,
+        'change_1m_date': date_1m,
+        'change_1y_date': date_1y,
+        'change_ytd_date': date_ytd,
+
+        # Quality flags - which periods have actual data points (vs extrapolated)
+        'change_1d_has_actual_data': has_1d_data,
+        'change_1w_has_actual_data': has_1w_data,
+        'change_1m_has_actual_data': has_1m_data,
+        'change_1y_has_actual_data': has_1y_data,
+        'change_ytd_has_actual_data': has_ytd_data,
+
+        # Native frequency flags - which periods are native to this data frequency
+        'change_1d_is_native': is_daily_native,
+        'change_1w_is_native': is_weekly_native,
+        'change_1m_is_native': is_monthly_native,
+        'change_1y_is_native': True,  # Always consider yearly change native
+        'change_ytd_is_native': True,  # Always consider YTD change native
+
+        # For backwards compatibility with existing code
+        'change_1d_is_duplicate': not has_1d_data,
+        'change_1w_is_duplicate': not has_1w_data,
+        'change_1m_is_duplicate': not has_1m_data,
+        'change_1y_is_duplicate': not has_1y_data,
         'change_ytd_is_duplicate': not has_ytd_data,
-        'change_ytd_date': date_ytd
+
+        # Backward compatibility - which periods should be shown
+        'change_1d_is_applicable': is_daily_native,
+        'change_1w_is_applicable': is_weekly_native or is_daily_native,
+        'change_1m_is_applicable': True,  # Always show monthly
+        'change_1y_is_applicable': True,  # Always show yearly
+        'change_ytd_is_applicable': True,  # Always show YTD
+
+        # Best period for this data (for UI to make intelligent decisions)
+        'best_period': best_period
     })
-    
+
     return result
 
 def create_price_chart(df, commodity_name, units, color=TECK_BLUE):
@@ -803,7 +855,7 @@ def get_data_update_text(df):
         
     return f"Last updated: {last_date_str} ({days_text})"
 
-def format_change_value(change, change_pct, is_duplicate=False):
+def format_change_value(change, change_pct, is_duplicate=False, is_applicable=True):
     """
     Format change values for display.
 
@@ -811,12 +863,18 @@ def format_change_value(change, change_pct, is_duplicate=False):
         change (float): Absolute change
         change_pct (float): Percentage change
         is_duplicate (bool): Whether this change uses the same price as another period
+        is_applicable (bool): Whether this change period is applicable for the data frequency
 
     Returns:
         tuple: (formatted text, color)
     """
+    # If the period is not applicable for this data frequency, show N/A but use standard color
+    # Use positive/negative colors to match the rest of the table
+    if not is_applicable:
+        return "N/A", "neutral"
+
     if change is None or change_pct is None:
-        return "No data available", "gray"
+        return "No data available", "neutral"
 
     # Ensure we have valid numbers
     try:

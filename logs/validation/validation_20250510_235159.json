@@ -1,0 +1,110 @@
+{
+  "timestamp": "2025-05-10T23:51:59.679421",
+  "results": {
+    "Copper (Cu)": {
+      "commodity": "Copper (Cu)",
+      "valid": false,
+      "issues": [
+        "Contains 2 potential outliers (|z-score| > 3)"
+      ],
+      "metrics": {
+        "count": 304,
+        "min_price": 8354.75,
+        "max_price": 10800.81,
+        "mean_price": 9302.605986842105,
+        "median_price": 9310.82,
+        "std_dev": 441.7986632840247,
+        "date_range": [
+          "2024-02-26T00:00:00",
+          "2025-05-09T00:00:00"
+        ],
+        "outliers": 2
+      }
+    },
+    "Zinc (Zn)": {
+      "commodity": "Zinc (Zn)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 304,
+        "min_price": 2369.25,
+        "max_price": 3202.25,
+        "mean_price": 2818.824769736842,
+        "median_price": 2835.5550000000003,
+        "std_dev": 189.8023405732278,
+        "date_range": [
+          "2024-02-26T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Lithium (Li)": {
+      "commodity": "Lithium (Li)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 13,
+        "min_price": 17.90602251513675,
+        "max_price": 19.58743158232481,
+        "mean_price": 18.590526521809743,
+        "median_price": 18.646829963309617,
+        "std_dev": 0.4972585581481609,
+        "date_range": [
+          "2024-04-30T23:51:57.148837",
+          "2025-04-30T23:51:57.148837"
+        ]
+      }
+    },
+    "Cobalt (Co)": {
+      "commodity": "Cobalt (Co)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 304,
+        "min_price": 21388.0,
+        "max_price": 35900.0,
+        "mean_price": 26509.364309210527,
+        "median_price": 26142.5,
+        "std_dev": 3346.351148669079,
+        "date_range": [
+          "2024-02-26T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Uranium (U)": {
+      "commodity": "Uranium (U)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 62,
+        "min_price": 63.45,
+        "max_price": 95.0,
+        "mean_price": 78.97499999999998,
+        "median_price": 81.0,
+        "std_dev": 9.157317015263411,
+        "date_range": [
+          "2024-02-26T00:00:00",
+          "2025-05-05T00:00:00"
+        ]
+      }
+    },
+    "Iron Ore": {
+      "commodity": "Iron Ore",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 299,
+        "min_price": 85.01,
+        "max_price": 116.46,
+        "mean_price": 98.7866889632107,
+        "median_price": 97.41,
+        "std_dev": 6.35986825611555,
+        "date_range": [
+          "2024-02-26T00:00:00",
+          "2025-05-08T00:00:00"
+        ]
+      }
+    }
+  }
+}

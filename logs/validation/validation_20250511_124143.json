@@ -1,0 +1,406 @@
+{
+  "timestamp": "2025-05-11T12:41:43.147748",
+  "results": {
+    "Copper (Cu)": {
+      "commodity": "Copper (Cu)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 7905.502,
+        "max_price": 10472.204,
+        "mean_price": 8975.623144688643,
+        "median_price": 8965.614,
+        "std_dev": 613.5984957382427,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Zinc (Zn)": {
+      "commodity": "Zinc (Zn)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 2292.9375,
+        "max_price": 3154.4139999999998,
+        "mean_price": 2710.213794871795,
+        "median_price": 2737.132,
+        "std_dev": 228.8025930436165,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Nickel (Ni)": {
+      "commodity": "Nickel (Ni)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 14290.822,
+        "max_price": 20470.3125,
+        "mean_price": 16837.13185897436,
+        "median_price": 16392.3,
+        "std_dev": 1479.6211006706692,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Lead (Pb)": {
+      "commodity": "Lead (Pb)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 1850.882,
+        "max_price": 2283.038,
+        "mean_price": 2064.2430164835164,
+        "median_price": 2046.792,
+        "std_dev": 102.29671871308292,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Aluminum (Al)": {
+      "commodity": "Aluminum (Al)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 2095.9975,
+        "max_price": 2713.7400000000002,
+        "mean_price": 2394.73273992674,
+        "median_price": 2402.226,
+        "std_dev": 185.21929754244337,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Gold (Au)": {
+      "commodity": "Gold (Au)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 1825.1439999999998,
+        "max_price": 3352.4199999999996,
+        "mean_price": 2414.2351153846157,
+        "median_price": 2377.662,
+        "std_dev": 390.82257807690456,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Silver (Ag)": {
+      "commodity": "Silver (Ag)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 21.160940000000004,
+        "max_price": 33.949619999999996,
+        "mean_price": 27.933801043956045,
+        "median_price": 29.2046,
+        "std_dev": 3.8382781553539753,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Platinum (Pt)": {
+      "commodity": "Platinum (Pt)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 873.768,
+        "max_price": 1051.16,
+        "mean_price": 950.6645549450551,
+        "median_price": 948.8040000000001,
+        "std_dev": 39.53923416637726,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Oil (WTI)": {
+      "commodity": "Oil (WTI)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 59.044000000000004,
+        "max_price": 91.45,
+        "mean_price": 75.53343589743591,
+        "median_price": 75.30999999999999,
+        "std_dev": 6.8752490789793,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "WCS Differential": {
+      "commodity": "WCS Differential",
+      "valid": false,
+      "issues": [
+        "Contains 91 negative prices"
+      ],
+      "metrics": {
+        "count": 91,
+        "min_price": -10.3,
+        "max_price": -3.12,
+        "mean_price": -6.429302197802198,
+        "median_price": -6.62,
+        "std_dev": 1.7818666801966736,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Natural Gas (AECO)": {
+      "commodity": "Natural Gas (AECO)",
+      "valid": false,
+      "issues": [
+        "Contains 1 potential outliers (|z-score| > 3)",
+        "Contains 7 large price jumps (>50% change)"
+      ],
+      "metrics": {
+        "count": 91,
+        "min_price": 0.154,
+        "max_price": 5.2379999999999995,
+        "mean_price": 1.6805970695970698,
+        "median_price": 1.734,
+        "std_dev": 0.7500592145619851,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ],
+        "outliers": 1,
+        "large_jumps": 7
+      }
+    },
+    "Sulphur": {
+      "commodity": "Sulphur",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 18,
+        "min_price": 1885.982352418276,
+        "max_price": 2018.8673654968231,
+        "mean_price": 1948.8242094808936,
+        "median_price": 1942.1955691008884,
+        "std_dev": 44.840164941669755,
+        "date_range": [
+          "2023-11-30T12:41:34.660216",
+          "2025-04-30T12:41:34.660216"
+        ]
+      }
+    },
+    "Lithium (Li)": {
+      "commodity": "Lithium (Li)",
+      "valid": false,
+      "issues": [
+        "Contains 3 potential outliers (|z-score| > 3)"
+      ],
+      "metrics": {
+        "count": 91,
+        "min_price": 8.7,
+        "max_price": 35.0025,
+        "mean_price": 14.535346153846154,
+        "median_price": 13.235,
+        "std_dev": 6.033998770251924,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ],
+        "outliers": 3
+      }
+    },
+    "Cobalt (Co)": {
+      "commodity": "Cobalt (Co)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 21408.0,
+        "max_price": 34841.0,
+        "mean_price": 28009.40924908425,
+        "median_price": 27724.2,
+        "std_dev": 3726.5714710153593,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Germanium (Ge)": {
+      "commodity": "Germanium (Ge)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 1390.0,
+        "max_price": 2875.0,
+        "mean_price": 2075.342490842491,
+        "median_price": 1753.0,
+        "std_dev": 601.9784020379357,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Molybdenum (Mo)": {
+      "commodity": "Molybdenum (Mo)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 17.247999999999998,
+        "max_price": 24.995,
+        "mean_price": 21.005987179487178,
+        "median_price": 20.854000000000003,
+        "std_dev": 1.6981103968516118,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Uranium (U)": {
+      "commodity": "Uranium (U)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 90,
+        "min_price": 58.25,
+        "max_price": 106.0,
+        "mean_price": 79.615,
+        "median_price": 80.625,
+        "std_dev": 11.346618686550524,
+        "date_range": [
+          "2023-08-25T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Antimony (Sb)": {
+      "commodity": "Antimony (Sb)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 78625.0,
+        "max_price": 242000.0,
+        "mean_price": 128743.49816849816,
+        "median_price": 140000.0,
+        "std_dev": 43891.28947025158,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Indium (In)": {
+      "commodity": "Indium (In)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 1975.0,
+        "max_price": 3075.0,
+        "mean_price": 2492.3672161172162,
+        "median_price": 2595.0,
+        "std_dev": 410.46116434430184,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Cadmium (Cd)": {
+      "commodity": "Cadmium (Cd)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 29310.0,
+        "max_price": 35550.0,
+        "mean_price": 33544.01098901099,
+        "median_price": 33750.0,
+        "std_dev": 1482.6149108760424,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Iron Ore": {
+      "commodity": "Iron Ore",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 87.17999999999999,
+        "max_price": 134.4725,
+        "mean_price": 105.67706488749346,
+        "median_price": 101.41999999999999,
+        "std_dev": 12.29245614214319,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "Iron Ore Futures": {
+      "commodity": "Iron Ore Futures",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 86.35,
+        "max_price": 118.375,
+        "mean_price": 101.09248351648353,
+        "median_price": 100.676,
+        "std_dev": 6.043140076175699,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    },
+    "US HRC Steel": {
+      "commodity": "US HRC Steel",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 91,
+        "min_price": 659.4,
+        "max_price": 1127.0,
+        "mean_price": 804.3862637362637,
+        "median_price": 775.75,
+        "std_dev": 126.10309672511221,
+        "date_range": [
+          "2023-08-18T00:00:00",
+          "2025-05-09T00:00:00"
+        ]
+      }
+    }
+  }
+}

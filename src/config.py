@@ -312,7 +312,7 @@ COMMODITIES = [
 DASHBOARD_TITLE = "Commodity Price Dashboard"
 DASHBOARD_SUBTITLE = "Market Research and Economic Analysis"
 DEFAULT_TIMEFRAME = "1Y"  # Options: 1M, 3M, 6M, 1Y, 5Y
-DEFAULT_DATA_FREQUENCY = "monthly"  # Options: daily, weekly, monthly
+DEFAULT_DATA_FREQUENCY = "daily"  # Options: daily, weekly, monthly
 AVAILABLE_TIMEFRAMES = ["1M", "3M", "6M", "1Y", "5Y"]
 AVAILABLE_FREQUENCIES = ["daily", "weekly", "monthly"]
 

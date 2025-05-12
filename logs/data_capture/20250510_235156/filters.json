@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-05-10T23:51:56.721785",
+  "filters": {
+    "timeframe": "1Y",
+    "start_date": "2024-05-10",
+    "end_date": "2025-05-10",
+    "frequency": "daily",
+    "category": "all",
+    "selected_commodities": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Uranium (U)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ]
+  }
+}

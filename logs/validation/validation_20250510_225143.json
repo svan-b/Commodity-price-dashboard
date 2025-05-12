@@ -1,0 +1,16 @@
+{
+  "timestamp": "2025-05-10T22:51:43.641209",
+  "results": {
+    "Copper (Cu)": {
+      "commodity": "Copper (Cu)",
+      "valid": true,
+      "issues": [],
+      "metrics": {
+        "count": 36,
+        "min_price": 7544.809523809524,
+        "max_price": 10128.573333333334,
+        "mean_price": 8739.2758172333,
+        "median_price": 8832.867934782607,
+        "std_dev": 633.8785976027989,
+        "date_range": [
+          

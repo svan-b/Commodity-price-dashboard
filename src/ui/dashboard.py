@@ -687,7 +687,8 @@ class Dashboard:
                     # New format with detailed changes
                     change_text, change_color = format_change_value(
                         changes['change_1d'], changes['change_1d_pct'],
-                        changes.get('change_1d_is_duplicate', False)
+                        changes.get('change_1d_is_duplicate', False),
+                        changes.get('change_1d_is_applicable', True)
                     )
                 else:
                     # Original format
@@ -704,40 +705,56 @@ class Dashboard:
                     price_type_indicator = "SPOT" if "Spot" in commodity_type else "FUTURES"
                     price_type_color = "#000000" if "Spot" in commodity_type else "#b0350b"  # Black for spot, red for futures
                     
-                    # Determine appropriate change period text based on data frequency
-                    # If we have few data points or large gaps, it's likely monthly data
-                    date_diffs = [(df['Date'].iloc[i] - df['Date'].iloc[i-1]).days 
-                                 for i in range(1, min(4, len(df)))] if len(df) > 1 else [30]
-                    avg_diff = sum(date_diffs) / len(date_diffs)
-                    
-                    if avg_diff < 2:
+                    # Get the best period to display based on the data's natural frequency
+                    best_period = changes.get('best_period', '1m')  # Default to monthly if not available
+
+                    # Select the appropriate period text and change value
+                    if best_period == '1d':
                         change_period = "1-Day Change"
-                    elif avg_diff < 10:
+                        # Use 1-day change for display
+                        change_text, change_color = format_change_value(
+                            changes['change_1d'], changes['change_1d_pct'],
+                            changes.get('change_1d_is_duplicate', False),
+                            True  # Always applicable since we're choosing the best period
+                        )
+                    elif best_period == '1w':
                         change_period = "Weekly Change"
-                    else:
+                        # Use 1-week change for display
+                        change_text, change_color = format_change_value(
+                            changes['change_1w'], changes['change_1w_pct'],
+                            changes.get('change_1w_is_duplicate', False),
+                            True  # Always applicable since we're choosing the best period
+                        )
+                    else:  # '1m' or fallback
                         change_period = "Monthly Change"
+                        # Use 1-month change for display
+                        change_text, change_color = format_change_value(
+                            changes['change_1m'], changes['change_1m_pct'],
+                            changes.get('change_1m_is_duplicate', False),
+                            True  # Always applicable since we're choosing the best period
+                        )
                     
                     # Check if the change_text contains an asterisk
                     asterisk_tooltip = ""
                     if "*" in change_text:
                         asterisk_tooltip = 'title="* Limited data available; some periods are using reference points based on available data"'
 
-                    # Get the last price date
-                    last_date = df['Date'].max().strftime('%Y-%m-%d') if not df.empty else "N/A"
+                    # Get the last price date formatted in a more readable way
+                    last_date = df['Date'].max().strftime('%b %d, %Y') if not df.empty else "N/A"
 
                     col.markdown(f"""
                     <div class="price-card">
                         <div class="color-indicator" style="background-color: {color};"></div>
-                        <div style="position: absolute; top: 10px; right: 40px; font-size: 0.7rem; font-weight: bold; color: {price_type_color}; background-color: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 3px;">{price_type_indicator}</div>
                         <h3>{commodity_name}</h3>
+                        <div style="font-size: 0.75rem; color: #6c757d; margin-bottom: 2px;">As of {last_date}</div>
                         <div class="price-value">{formatted_price}</div>
-                        <div class="price-change {change_color}" {asterisk_tooltip}>{change_text}</div>
-                        <div style="font-size: 0.75rem; color: #6c757d; margin-top: -5px; margin-bottom: 5px;">
-                            <strong>{change_period}</strong> • As of {last_date}
-                        </div>
                         <div class="price-units">{units}</div>
+                        <div class="price-change {change_color}" {asterisk_tooltip}>{change_text}</div>
+                        <div style="font-size: 0.75rem; color: #6c757d; margin-top: -2px; margin-bottom: 5px;">
+                            <strong>{change_period}</strong>
+                        </div>
                         <div class="data-source">
-                            <span class="price-type">{commodity_type}</span> | {data_source} | {ticker}
+                            <span class="price-type">{commodity_type}</span> | {data_source}
                         </div>
                     </div>
                     """, unsafe_allow_html=True)
@@ -811,35 +828,59 @@ class Dashboard:
             last_price = changes['last_price']
             formatted_price = format_price(last_price, units) if last_price is not None else "N/A"
 
-            st.markdown(f"### Current Price")
+            # Format the last price date
+            last_date_str = "N/A"
+            if 'last_price' in changes and changes.get('last_price') is not None:
+                if df['Date'].iloc[-1] is not None:
+                    last_date_str = df['Date'].iloc[-1].strftime("%b %d, %Y")
+
+            st.markdown(f"### Price as of {last_date_str}")
             st.markdown(f"<div class='price-value'>{formatted_price}</div>", unsafe_allow_html=True)
             st.markdown(f"<div class='price-units'>{units} • {commodity_type}</div>", unsafe_allow_html=True)
 
             # Price changes
-            st.markdown("### Price Changes")
+            freq_type = changes.get('freq_type', 'unknown')
+            avg_diff = changes.get('avg_days_between_points', 0)
+
+            # Add data frequency information
+            if freq_type == 'daily':
+                freq_text = f"Daily data (avg. {avg_diff:.1f} days between points)"
+            elif freq_type == 'weekly':
+                freq_text = f"Weekly data (avg. {avg_diff:.1f} days between points)"
+            elif freq_type == 'monthly':
+                freq_text = f"Monthly data (avg. {avg_diff:.1f} days between points)"
+            else:
+                freq_text = f"Data frequency: {avg_diff:.1f} days between points"
+
+            st.markdown(f"### Price Changes <span style='font-size: 0.8rem; font-weight: normal; color: #666;'>({freq_text})</span>", unsafe_allow_html=True)
 
             # Always use the detailed changes format
             if 'change_1d' in changes:
-                # New format with detailed changes
+                # New format with detailed changes - use best available data
                 change_1d_text, change_1d_color = format_change_value(
                     changes['change_1d'], changes['change_1d_pct'],
-                    changes.get('change_1d_is_duplicate', False)
+                    changes.get('change_1d_is_duplicate', False),
+                    changes.get('change_1d_is_native', False)  # Show N/A when not native to frequency
                 )
                 change_1w_text, change_1w_color = format_change_value(
                     changes['change_1w'], changes['change_1w_pct'],
-                    changes.get('change_1w_is_duplicate', False)
+                    changes.get('change_1w_is_duplicate', False),
+                    changes.get('change_1w_is_native', False) or changes.get('change_1d_is_native', False)  # Show weekly for daily+weekly
                 )
                 change_1m_text, change_1m_color = format_change_value(
                     changes['change_1m'], changes['change_1m_pct'],
-                    changes.get('change_1m_is_duplicate', False)
+                    changes.get('change_1m_is_duplicate', False),
+                    True  # Always show monthly changes
                 )
                 change_1y_text, change_1y_color = format_change_value(
                     changes['change_1y'], changes['change_1y_pct'],
-                    changes.get('change_1y_is_duplicate', False)
+                    changes.get('change_1y_is_duplicate', False),
+                    True  # Always show yearly changes
                 )
                 change_ytd_text, change_ytd_color = format_change_value(
                     changes['change_ytd'], changes['change_ytd_pct'],
-                    changes.get('change_ytd_is_duplicate', False)
+                    changes.get('change_ytd_is_duplicate', False),
+                    True  # Always show YTD changes
                 )
 
                 # Include reference dates in tooltips for transparency
@@ -913,13 +954,50 @@ class Dashboard:
             </table>
             """
 
+            # Create explanatory notes about the data
+            note_text = []
+
+            # Note about data with asterisks
             if has_duplicate:
-                change_table += '<div style="font-size: 0.8rem; color: #888; margin-top: 8px;">* Limited data available; some periods are using reference points based on available data. Hover over rows to see reference dates.</div>'
+                note_text.append("* Limited data available; some periods are using reference points based on available data.")
+
+            # Check if we have N/A values due to data frequency limitations
+            has_na = any(text == "N/A" for text in [change_1d_text, change_1w_text, change_1m_text, change_1y_text, change_ytd_text])
+            if has_na:
+                data_freq = ""
+                if changes.get('change_1d_is_native', False):
+                    data_freq = "daily"
+                elif changes.get('change_1w_is_native', False):
+                    data_freq = "weekly"
+                elif changes.get('change_1m_is_native', False):
+                    data_freq = "monthly"
+
+                note_text.append(f"N/A indicates periods not applicable for {data_freq} data (e.g., daily changes for monthly data).")
+
+            # Add custom notes about data frequency
+            avg_diff = changes.get('avg_days_between_points', 0)
+            if avg_diff > 0:
+                note_text.append(f"Average time between data points: {avg_diff:.1f} days.")
+
+            # Include all notes in a footer
+            if note_text:
+                note_html = " ".join(note_text)
+                change_table += f'<div style="font-size: 0.8rem; color: #888; margin-top: 8px;">{note_html} Hover over rows to see reference dates.</div>'
 
             st.markdown(change_table, unsafe_allow_html=True)
 
             # Metadata
             st.markdown("### Metadata")
+            # Format frequency for display
+            if freq_type == 'daily':
+                freq_display = f"Daily (avg {avg_diff:.1f} days between points)"
+            elif freq_type == 'weekly':
+                freq_display = f"Weekly (avg {avg_diff:.1f} days between points)"
+            elif freq_type == 'monthly':
+                freq_display = f"Monthly (avg {avg_diff:.1f} days between points)"
+            else:
+                freq_display = f"Unknown ({avg_diff:.1f} days between points)"
+
             st.markdown(f"""
             | Field | Value |
             | ----- | ----- |
@@ -927,6 +1005,7 @@ class Dashboard:
             | Ticker | {ticker} |
             | Type | {commodity_type} |
             | Units | {units} |
+            | Data Frequency | {freq_display} |
             """)
 
         # Data table

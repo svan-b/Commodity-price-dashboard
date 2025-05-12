@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-05-10T23:51:46.092672",
+  "filters": {
+    "timeframe": "1Y",
+    "start_date": "2024-05-10",
+    "end_date": "2025-05-10",
+    "frequency": "daily",
+    "category": "all",
+    "selected_commodities": [
+      "Copper (Cu)",
+      "Zinc (Zn)",
+      "Platinum (Pt)",
+      "Oil (WTI)",
+      "WCS Differential",
+      "Natural Gas (AECO)",
+      "Sulphur",
+      "Lithium (Li)",
+      "Cobalt (Co)",
+      "Molybdenum (Mo)",
+      "Uranium (U)",
+      "Antimony (Sb)",
+      "Indium (In)",
+      "Cadmium (Cd)",
+      "Iron Ore",
+      "Iron Ore Futures",
+      "US HRC Steel"
+    ]
+  }
+}

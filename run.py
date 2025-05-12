@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 def main():
     """
-    Run the Streamlit dashboard application.
+    Run the Streamlit dashboard application with graceful shutdown handling.
     """
     try:
         # Parse command line arguments
@@ -43,12 +43,17 @@ def main():
         # Run Streamlit
         result = subprocess.run(
             ["streamlit", "run", main_path],
-            check=True,
+            check=False,  # Don't raise exception on non-zero exit
             text=True
         )
 
         return result.returncode
 
+    except KeyboardInterrupt:
+        # Handle Ctrl+C gracefully
+        logger.info("Keyboard interrupt received. Shutting down gracefully...")
+        print("\nShutting down gracefully. Thank you for using the Commodity Price Dashboard!")
+        return 0
     except Exception as e:
         logger.error(f"Error running dashboard: {str(e)}")
         return 1
